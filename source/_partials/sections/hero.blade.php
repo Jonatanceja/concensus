@@ -3,6 +3,7 @@
 <section id="inicio" class="relative"
     x-data="heroSlider({ count: {{ count($hero['slides']) }}, autoplay: {{ $hero['autoplay'] ? 'true' : 'false' }}, interval: {{ $hero['interval'] ?? 7000 }} })"
     x-on:mouseenter="paused = true" x-on:mouseleave="paused = false"
+    x-on:focusin="paused = true" x-on:focusout="paused = false"
     x-on:touchstart.passive="onTouchStart($event)" x-on:touchend.passive="onTouchEnd($event)"
     x-on:keydown.window.arrow-right="next()" x-on:keydown.window.arrow-left="prev()"
     aria-roledescription="carrusel" aria-label="Presentación principal">
@@ -22,7 +23,7 @@
 
         {{-- Veladura para legibilidad --}}
         <div class="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/45 to-ink-950/5"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-ink-950/35"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-ink-950/55"></div>
 
         {{-- Contenido --}}
         <div class="relative flex h-full items-center">
@@ -42,11 +43,12 @@
                                      x-bind:aria-hidden="active !== {{ $index }}">
                                     <span class="eyebrow !text-brand-300">{{ $slide['eyebrow'] }}</span>
 
-                                    <h1 class="hero-title mt-5 font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]">
+                                    {{-- Una sola h1 por página: los demás slides usan h2 con el mismo estilo --}}
+                                    <{{ $index === 0 ? 'h1' : 'h2' }} class="hero-title mt-5 font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]">
                                         {{ $slide['title'] }}
                                         <span class="text-gradient">{{ $slide['highlight'] }}</span>
                                         {{ $slide['title_end'] }}
-                                    </h1>
+                                    </{{ $index === 0 ? 'h1' : 'h2' }}>
 
                                     <p class="hero-copy mt-6 max-w-lg text-[0.975rem] leading-relaxed text-white/75">{{ $slide['text'] }}</p>
 
@@ -71,11 +73,11 @@
         @if (count($hero['slides']) > 1)
             <div class="absolute inset-x-0 bottom-0">
                 <div class="shell flex items-center justify-between gap-6 pb-8">
-                    <div class="flex items-center gap-3" role="tablist" aria-label="Ir al slide">
+                    <div class="flex items-center gap-3">
                         @foreach ($hero['slides'] as $index => $slide)
-                            <button type="button" x-on:click="go({{ $index }})" role="tab"
-                                    x-bind:aria-selected="active === {{ $index }}"
-                                    aria-label="Slide {{ $index + 1 }}"
+                            <button type="button" x-on:click="go({{ $index }})"
+                                    x-bind:aria-current="active === {{ $index }} ? 'true' : 'false'"
+                                    aria-label="Ir al slide {{ $index + 1 }} de {{ count($hero['slides']) }}: {{ $slide['eyebrow'] }}"
                                     class="h-1 rounded-full transition-all duration-500"
                                     x-bind:class="active === {{ $index }} ? 'w-12 bg-brand-400' : 'w-6 bg-white/35 hover:bg-white/60'"></button>
                         @endforeach
@@ -85,11 +87,19 @@
                     </div>
 
                     <div class="hidden gap-2 sm:flex">
-                        <button type="button" x-on:click="prev()" aria-label="Anterior"
+                        {{-- Pausar la reproducción automática: requisito de WCAG 2.2.2 --}}
+                        <button type="button" x-on:click="toggleAutoplay()"
+                                x-bind:aria-label="stopped ? 'Reanudar la presentación automática' : 'Pausar la presentación automática'"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white/80 transition-all hover:border-brand-400 hover:bg-white/10 hover:text-white">
+                            <span x-show="!stopped">@include('_partials.icon', ['name' => 'pause', 'class' => 'w-4 h-4'])</span>
+                            <span x-show="stopped" x-cloak>@include('_partials.icon', ['name' => 'play', 'class' => 'w-4 h-4'])</span>
+                        </button>
+
+                        <button type="button" x-on:click="prev()" aria-label="Slide anterior"
                                 class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white/80 transition-all hover:border-brand-400 hover:bg-white/10 hover:text-white">
                             @include('_partials.icon', ['name' => 'chevron-left', 'class' => 'w-5 h-5'])
                         </button>
-                        <button type="button" x-on:click="next()" aria-label="Siguiente"
+                        <button type="button" x-on:click="next()" aria-label="Slide siguiente"
                                 class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white/80 transition-all hover:border-brand-400 hover:bg-white/10 hover:text-white">
                             @include('_partials.icon', ['name' => 'chevron-right', 'class' => 'w-5 h-5'])
                         </button>

@@ -1,10 +1,11 @@
 @php $faq = $page->content['faq']; @endphp
 
-<section id="{{ $faq['id'] ?? 'faq' }}" x-data="faqAccordion(0)" class="bg-sand-100 py-20 lg:py-28">
+<section id="{{ $faq['id'] ?? 'faq' }}" x-data="faqAccordion(0)" class="bg-sand-100 py-20 lg:py-28"
+         aria-labelledby="faq-titulo">
     <div class="shell">
         <div class="reveal mx-auto max-w-2xl text-center" x-intersect.once="$el.classList.add('is-visible')">
             <span class="eyebrow eyebrow-center">{{ $faq['eyebrow'] }}</span>
-            <h2 class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $faq['title'] }}</h2>
+            <h2 id="faq-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $faq['title'] }}</h2>
             <p class="mt-5 text-[0.975rem] leading-relaxed text-ink-500">{{ $faq['text'] }}</p>
         </div>
 
@@ -16,7 +17,8 @@
                      x-intersect.once="$el.classList.add('is-visible')">
                     <h3>
                         <button type="button" x-on:click="toggle({{ $index }})"
-                                x-bind:aria-expanded="isOpen({{ $index }})"
+                                id="faq-boton-{{ $index }}" aria-controls="faq-panel-{{ $index }}"
+                                x-bind:aria-expanded="isOpen({{ $index }}) ? 'true' : 'false'"
                                 class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left">
                             <span class="font-display text-[0.975rem] font-medium text-ink-900">{{ $item['question'] }}</span>
                             <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300"
@@ -26,7 +28,9 @@
                         </button>
                     </h3>
 
-                    <div class="faq-answer" x-show="isOpen({{ $index }})" x-collapse x-cloak>
+                    <div class="faq-answer" id="faq-panel-{{ $index }}" role="region"
+                         aria-labelledby="faq-boton-{{ $index }}"
+                         x-show="isOpen({{ $index }})" x-collapse x-cloak>
                         <p class="border-t border-sand-200/80 px-6 py-5 text-sm leading-relaxed text-ink-500">{{ $item['answer'] }}</p>
                     </div>
                 </div>

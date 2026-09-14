@@ -30,24 +30,28 @@ form:
   privacy: Al enviar acepta nuestro aviso de privacidad. Sus datos se tratan de forma estrictamente confidencial.
   fields:
     - name: nombre
+      autocomplete: name
       label: Nombre completo
       type: text
       placeholder: Ej. María Fernanda Torres
       required: true
       width: half
     - name: empresa
+      autocomplete: organization
       label: Empresa
       type: text
       placeholder: Nombre de su empresa familiar
       required: false
       width: half
     - name: email
+      autocomplete: email
       label: Correo electrónico
       type: email
       placeholder: nombre@empresa.com
       required: true
       width: half
     - name: telefono
+      autocomplete: tel
       label: Teléfono
       type: tel
       placeholder: "+52 55 0000 0000"

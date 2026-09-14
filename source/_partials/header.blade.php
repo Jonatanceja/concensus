@@ -31,7 +31,8 @@
 
             <button type="button" x-on:click="toggle()"
                     class="nav-toggle inline-flex h-11 w-11 items-center justify-center rounded-full border lg:hidden"
-                    x-bind:aria-expanded="open" aria-label="Abrir menú">
+                    x-bind:aria-expanded="open ? 'true' : 'false'" aria-controls="menu-movil"
+                x-bind:aria-label="open ? 'Cerrar menú' : 'Abrir menú'">
                 <span x-show="!open">@include('_partials.icon', ['name' => 'menu', 'class' => 'w-5 h-5'])</span>
                 <span x-show="open" x-cloak>@include('_partials.icon', ['name' => 'close', 'class' => 'w-5 h-5'])</span>
             </button>
@@ -39,7 +40,7 @@
     </div>
 
     {{-- Menú móvil --}}
-    <div x-show="open" x-cloak x-transition.opacity.duration.200ms class="lg:hidden border-t border-sand-200 bg-sand-50">
+    <div id="menu-movil" x-show="open" x-cloak x-transition.opacity.duration.200ms class="lg:hidden border-t border-sand-200 bg-sand-50">
         <nav class="shell flex flex-col py-4" aria-label="Móvil">
             @foreach ($site['nav'] as $link)
                 <a href="{{ $link['href'] }}" x-on:click="close()"

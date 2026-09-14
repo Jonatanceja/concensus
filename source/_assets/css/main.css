@@ -214,7 +214,7 @@
     }
 
     .field::placeholder {
-        color: var(--color-ink-400);
+        color: var(--color-ink-500);
     }
 
     .field:focus {

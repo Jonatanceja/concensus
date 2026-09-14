@@ -1,6 +1,6 @@
 @php $bio = $page->content['biografia']; @endphp
 
-<section id="{{ $bio['id'] ?? 'biografia' }}" x-data class="relative overflow-hidden bg-sand-50 py-20 lg:py-28">
+<section id="{{ $bio['id'] ?? 'biografia' }}" x-data class="relative overflow-hidden bg-sand-50 py-20 lg:py-28" aria-labelledby="bio-titulo">
     <div class="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl"></div>
 
     <div class="shell relative">
@@ -16,7 +16,7 @@
 
             <div class="reveal lg:col-span-7" style="transition-delay: 120ms" x-intersect.once="$el.classList.add('is-visible')">
                 <span class="eyebrow">{{ $bio['eyebrow'] }}</span>
-                <h2 class="mt-5 font-display text-3xl font-semibold sm:text-4xl">{{ $bio['name'] }}</h2>
+                <h2 id="bio-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl">{{ $bio['name'] }}</h2>
                 <p class="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-600">{{ $bio['role'] }}</p>
 
                 <div class="prose-brand mt-6 max-w-xl text-[0.975rem]">
@@ -28,7 +28,7 @@
                         @foreach ($bio['highlights'] as $item)
                             <div class="rounded-2xl border border-sand-200 bg-white px-4 py-5 text-center shadow-soft">
                                 <dt class="font-display text-2xl font-semibold text-brand-600">{{ $item['value'] }}</dt>
-                                <dd class="mt-1 text-[0.7rem] font-medium uppercase tracking-wider text-ink-400">{{ $item['label'] }}</dd>
+                                <dd class="mt-1 text-[0.7rem] font-medium uppercase tracking-wider text-ink-500">{{ $item['label'] }}</dd>
                             </div>
                         @endforeach
                     </dl>

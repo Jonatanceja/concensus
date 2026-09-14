@@ -41,20 +41,30 @@ Alpine.data('heroSlider', (config = {}) => ({
     autoplay: config.autoplay !== false,
     interval: config.interval || 7000,
     active: 0,
-    paused: false,
+    paused: false,   // pausa temporal: puntero encima o foco dentro
+    stopped: false,  // pausa explícita del usuario con el botón
     timer: null,
     touchStart: null,
 
     init() {
-        if (this.autoplay && this.count > 1) {
-            this.play();
+        // Respeta la preferencia del sistema de reducir movimiento (WCAG 2.3.3)
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.autoplay = false;
+            this.stopped = true;
         }
 
-        this.$watch('paused', (paused) => (paused ? this.stop() : this.play()));
+        this.play();
+
+        this.$watch('paused', () => this.sync());
+        this.$watch('stopped', () => this.sync());
+    },
+
+    sync() {
+        this.paused || this.stopped ? this.stop() : this.play();
     },
 
     play() {
-        if (!this.autoplay || this.count < 2) return;
+        if (!this.autoplay || this.stopped || this.paused || this.count < 2) return;
         this.stop();
         this.timer = setInterval(() => this.next(), this.interval);
     },
@@ -62,6 +72,11 @@ Alpine.data('heroSlider', (config = {}) => ({
     stop() {
         if (this.timer) clearInterval(this.timer);
         this.timer = null;
+    },
+
+    // Botón de pausa/reproducción: control manual exigido por WCAG 2.2.2
+    toggleAutoplay() {
+        this.stopped = !this.stopped;
     },
 
     go(index) {
@@ -99,15 +114,23 @@ Alpine.data('cardsSlider', (config = {}) => ({
     autoplay: config.autoplay !== false,
     interval: config.interval || 8000,
     paused: false,
+    stopped: false,
     timer: null,
     touchStart: null,
 
     init() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.autoplay = false;
+            this.stopped = true;
+        }
+
         this.measure();
         window.addEventListener('resize', () => this.measure(), { passive: true });
 
-        if (this.autoplay) this.play();
-        this.$watch('paused', (paused) => (paused ? this.stop() : this.play()));
+        this.play();
+
+        this.$watch('paused', () => this.sync());
+        this.$watch('stopped', () => this.sync());
     },
 
     measure() {
@@ -127,8 +150,12 @@ Alpine.data('cardsSlider', (config = {}) => ({
         return -(this.page * 100);
     },
 
+    sync() {
+        this.paused || this.stopped ? this.stop() : this.play();
+    },
+
     play() {
-        if (!this.autoplay || this.pages < 2) return;
+        if (!this.autoplay || this.stopped || this.paused || this.pages < 2) return;
         this.stop();
         this.timer = setInterval(() => this.next(), this.interval);
     },
@@ -136,6 +163,10 @@ Alpine.data('cardsSlider', (config = {}) => ({
     stop() {
         if (this.timer) clearInterval(this.timer);
         this.timer = null;
+    },
+
+    toggleAutoplay() {
+        this.stopped = !this.stopped;
     },
 
     go(page) {

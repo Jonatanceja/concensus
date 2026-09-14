@@ -107,6 +107,38 @@ Facebook y X.
 > `config.production.php`. **Ajústelo al dominio real antes de publicar**, o las
 > previsualizaciones apuntarán a `https://consensusfamily.com`.
 
+## SEO y accesibilidad
+
+Lo que el sitio ya trae resuelto:
+
+**SEO**
+- `<title>`, `meta description` y `canonical` (desde `config.php`)
+- Open Graph y Twitter Card con imagen 1200×630 (bloque `seo` de `site.md`)
+- Datos estructurados JSON-LD en `source/_partials/schema.blade.php`, generados
+  desde el propio contenido: `ProfessionalService` con el catálogo de servicios,
+  `Person` de la fundadora, `FAQPage` con las preguntas frecuentes y `WebSite`.
+  Al editar los `.md` el marcado se actualiza solo.
+- `sitemap.xml` generado en cada build (evento `afterBuild` de `bootstrap.php`)
+  con el dominio del entorno
+- Una sola `<h1>` por página: los slides siguientes usan `<h2>` con el mismo estilo
+- Precarga de la imagen del primer slide (es el elemento más grande de la
+  primera pantalla) y `loading="lazy"` en el resto
+
+**Accesibilidad** (verificado con axe-core: 0 incidencias)
+- Secciones con nombre accesible (`aria-labelledby` apuntando a su título) y
+  enlace para saltar al contenido
+- Carruseles: botón de pausa —la reproducción automática exige un control
+  manual—, pausa al pasar el puntero o al entrar el foco, flechas y puntos con
+  etiquetas descriptivas y `aria-current`
+- Se respeta `prefers-reduced-motion`: sin reproducción automática ni
+  transiciones para quien lo tenga activado
+- Acordeón de FAQ con `aria-expanded`, `aria-controls` y paneles como regiones
+- Formulario con etiquetas asociadas, `autocomplete`, aviso de campos
+  obligatorios y confirmación anunciada (`role="status"`)
+- Contraste AA en todos los textos; el foco del teclado siempre visible
+- Los slides ocultos usan `visibility: hidden`, así sus enlaces quedan fuera del
+  recorrido del tabulador
+
 ## Sitio fuera de los buscadores (noindex)
 
 Mientras el sitio está en preparación se bloquea la indexación en tres frentes:

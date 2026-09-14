@@ -48,6 +48,11 @@
         <meta name="twitter:image" content="{{ $ogImage }}">
         <meta name="twitter:image:alt" content="{{ $seo['og_image_alt'] ?? $page->title }}">
 
+        {{-- Imagen del primer slide: es el elemento más grande de la pantalla inicial --}}
+        @if ($heroImage = $page->content['hero']['slides'][0]['image'] ?? null)
+        <link rel="preload" as="image" href="{{ $heroImage }}" fetchpriority="high">
+        @endif
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,6 +66,8 @@
                 .faq-answer { display: block !important; }
             </style>
         </noscript>
+
+        @include('_partials.schema')
 
         @viteRefresh()
         <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">

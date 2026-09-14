@@ -3,12 +3,13 @@
 <section id="{{ $testimonios['id'] ?? 'testimonios' }}" class="bg-sand-100 py-20 lg:py-28"
     x-data="cardsSlider({ count: {{ count($testimonios['items']) }}, autoplay: {{ $testimonios['autoplay'] ? 'true' : 'false' }}, interval: {{ $testimonios['interval'] ?? 8000 }} })"
     x-on:mouseenter="paused = true" x-on:mouseleave="paused = false"
-    aria-roledescription="carrusel" aria-label="{{ $testimonios['title'] }}">
+    x-on:focusin="paused = true" x-on:focusout="paused = false"
+    aria-roledescription="carrusel" aria-labelledby="testimonios-titulo">
 
     <div class="shell">
         <div class="reveal mx-auto max-w-2xl text-center" x-intersect.once="$el.classList.add('is-visible')">
             <span class="eyebrow eyebrow-center">{{ $testimonios['eyebrow'] }}</span>
-            <h2 class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $testimonios['title'] }}</h2>
+            <h2 id="testimonios-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $testimonios['title'] }}</h2>
             <p class="mt-5 text-[0.975rem] leading-relaxed text-ink-500">{{ $testimonios['text'] }}</p>
         </div>
 
@@ -28,7 +29,7 @@
                                 </blockquote>
                                 <figcaption class="mt-7 border-t border-sand-200 pt-5">
                                     <span class="block font-display text-sm font-semibold text-ink-900">{{ $item['author'] }}</span>
-                                    <span class="mt-0.5 block text-xs text-ink-400">{{ $item['role'] }}</span>
+                                    <span class="mt-0.5 block text-xs text-ink-500">{{ $item['role'] }}</span>
                                 </figcaption>
                             </figure>
                         </div>
@@ -45,7 +46,8 @@
                 <div class="flex items-center gap-2">
                     <template x-for="index in pages" x-bind:key="index">
                         <button type="button" x-on:click="go(index - 1)"
-                                x-bind:aria-label="`Página ${index}`"
+                                x-bind:aria-label="`Ir a la página ${index} de ${pages} de testimonios`"
+                                x-bind:aria-current="page === index - 1 ? 'true' : 'false'"
                                 class="h-1.5 rounded-full transition-all duration-500"
                                 x-bind:class="page === index - 1 ? 'w-9 bg-brand-500' : 'w-3 bg-sand-300 hover:bg-brand-200'"></button>
                     </template>

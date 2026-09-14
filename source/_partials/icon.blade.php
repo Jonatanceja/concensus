@@ -66,6 +66,12 @@
         @case('menu')
             <path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/>
             @break
+        @case('pause')
+            <path d="M9 5v14"/><path d="M15 5v14"/>
+            @break
+        @case('play')
+            <path d="M7 4.5v15l12-7.5z"/>
+            @break
         @case('close')
             <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
             @break

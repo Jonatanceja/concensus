@@ -2,6 +2,6 @@
 # Al lanzar, sustituya el contenido por:
 #   User-agent: *
 #   Allow: /
-#   Sitemap: https://midominio.com/sitemap.xml
+#   Sitemap: https://midominio.com/sitemap.xml   (se genera solo en cada build)
 User-agent: *
 Disallow: /

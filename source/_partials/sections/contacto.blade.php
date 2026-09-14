@@ -3,7 +3,7 @@
     $form = $contacto['form'];
 @endphp
 
-<section id="{{ $contacto['id'] ?? 'contacto' }}" x-data class="relative overflow-hidden bg-sand-50 py-20 lg:py-28">
+<section id="{{ $contacto['id'] ?? 'contacto' }}" x-data class="relative overflow-hidden bg-sand-50 py-20 lg:py-28" aria-labelledby="contacto-titulo">
     <div class="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl"></div>
 
     <div class="shell relative">
@@ -11,7 +11,7 @@
             {{-- Columna informativa --}}
             <div class="reveal lg:col-span-5" x-intersect.once="$el.classList.add('is-visible')">
                 <span class="eyebrow">{{ $contacto['eyebrow'] }}</span>
-                <h2 class="mt-5 font-display text-3xl font-semibold sm:text-4xl">{{ $contacto['title'] }}</h2>
+                <h2 id="contacto-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl">{{ $contacto['title'] }}</h2>
                 <p class="mt-5 max-w-md text-[0.975rem] leading-relaxed text-ink-500">{{ $contacto['text'] }}</p>
 
                 <ul class="mt-10 space-y-5">
@@ -21,7 +21,7 @@
                                 @include('_partials.icon', ['name' => $detail['icon'], 'class' => 'w-[18px] h-[18px]'])
                             </span>
                             <span>
-                                <span class="block text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink-400">{{ $detail['label'] }}</span>
+                                <span class="block text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink-500">{{ $detail['label'] }}</span>
                                 @if ($detail['href'] ?? false)
                                     <a href="{{ $detail['href'] }}" class="mt-1 block text-[0.95rem] font-medium text-ink-800 transition-colors hover:text-brand-600">{{ $detail['value'] }}</a>
                                 @else
@@ -49,12 +49,14 @@
                             </p>
                         @endif
 
+                        <p class="mb-6 text-xs text-ink-500">Los campos marcados con <span class="text-brand-600">*</span> son obligatorios.</p>
+
                         <div class="grid gap-5 sm:grid-cols-2">
                             @foreach ($form['fields'] as $field)
                                 <div class="{{ ($field['width'] ?? 'full') === 'full' ? 'sm:col-span-2' : '' }}">
                                     <label class="field-label" for="field-{{ $field['name'] }}">
                                         {{ $field['label'] }}
-                                        @if ($field['required'] ?? false)<span class="text-brand-500">*</span>@endif
+                                        @if ($field['required'] ?? false)<span class="text-brand-600" aria-hidden="true">*</span>@endif
                                     </label>
 
                                     @if ($field['type'] === 'textarea')
@@ -72,6 +74,7 @@
                                     @else
                                         <input id="field-{{ $field['name'] }}" name="{{ $field['name'] }}" type="{{ $field['type'] }}"
                                                class="field" placeholder="{{ $field['placeholder'] ?? '' }}"
+                                               @if ($field['autocomplete'] ?? false) autocomplete="{{ $field['autocomplete'] }}" @endif
                                                @if ($field['required'] ?? false) required @endif>
                                     @endif
                                 </div>
@@ -85,12 +88,12 @@
                         </button>
 
                         @if ($form['privacy'] ?? false)
-                            <p class="mt-5 text-xs leading-relaxed text-ink-400">{{ $form['privacy'] }}</p>
+                            <p class="mt-5 text-xs leading-relaxed text-ink-500">{{ $form['privacy'] }}</p>
                         @endif
                     </form>
 
                     {{-- Confirmación --}}
-                    <div x-show="sent" x-cloak x-transition.opacity class="py-10 text-center">
+                    <div x-show="sent" x-cloak x-transition.opacity role="status" aria-live="polite" class="py-10 text-center">
                         <span class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-600">
                             @include('_partials.icon', ['name' => 'check', 'class' => 'w-7 h-7'])
                         </span>

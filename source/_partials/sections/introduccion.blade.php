@@ -1,10 +1,10 @@
 @php $intro = $page->content['introduccion']; @endphp
 
-<section id="{{ $intro['id'] ?? 'introduccion' }}" x-data class="relative bg-sand-100 py-20 lg:py-28">
+<section id="{{ $intro['id'] ?? 'introduccion' }}" x-data class="relative bg-sand-100 py-20 lg:py-28" aria-labelledby="intro-titulo">
     <div class="shell">
         <div class="reveal mx-auto max-w-2xl text-center" x-intersect.once="$el.classList.add('is-visible')">
             <span class="eyebrow eyebrow-center">{{ $intro['eyebrow'] }}</span>
-            <h2 class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $intro['title'] }}</h2>
+            <h2 id="intro-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl lg:text-[2.7rem]">{{ $intro['title'] }}</h2>
             <p class="mt-5 text-[0.975rem] leading-relaxed text-ink-500">{{ $intro['text'] }}</p>
         </div>
 

@@ -33,7 +33,7 @@
             <div class="lg:col-span-1"></div>
         </div>
 
-        <div class="mt-14 border-t border-white/10 pt-6 text-xs text-ink-500">
+        <div class="mt-14 border-t border-white/10 pt-6 text-xs text-ink-400">
             © {{ date('Y') }} {{ $site['footer']['copyright'] }}
         </div>
     </div>
