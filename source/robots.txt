@@ -1,0 +1,7 @@
+# Sitio en preparación: fuera de los buscadores.
+# Al lanzar, sustituya el contenido por:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://midominio.com/sitemap.xml
+User-agent: *
+Disallow: /

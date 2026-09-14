@@ -107,6 +107,18 @@ Facebook y X.
 > `config.production.php`. **Ajústelo al dominio real antes de publicar**, o las
 > previsualizaciones apuntarán a `https://consensusfamily.com`.
 
+## Sitio fuera de los buscadores (noindex)
+
+Mientras el sitio está en preparación se bloquea la indexación en tres frentes:
+
+1. `seo.noindex: true` en `source/_content/site.md` → imprime
+   `<meta name="robots" content="noindex, nofollow">` en el `<head>`
+2. `source/robots.txt` → `Disallow: /`
+3. Cabecera `X-Robots-Tag: noindex, nofollow` en `netlify.toml`
+
+**Al lanzar hay que revertir los tres**: poner `noindex: false`, abrir el
+`robots.txt` y borrar la línea `X-Robots-Tag` de `netlify.toml`.
+
 ## Formulario de contacto
 
 Los campos se definen en `08-contacto.md`. Mientras `form.action` sea `#`,

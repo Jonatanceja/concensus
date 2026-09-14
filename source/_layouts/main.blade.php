@@ -15,6 +15,12 @@
 
         <title>{{ $page->title }}</title>
 
+@if ($seo['noindex'] ?? false)
+        {{-- Sitio en preparación: fuera de los buscadores (seo.noindex en site.md) --}}
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="googlebot" content="noindex, nofollow">
+@endif
+
         {{-- Favicons --}}
         <link rel="icon" href="/favicon.ico" sizes="32x32">
         <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">

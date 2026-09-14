@@ -13,6 +13,9 @@ seo:
   og_image_height: 630
   locale: es_MX
   twitter_card: summary_large_image
+  # Sitio oculto para los buscadores. Ponga `false` al lanzar y revise
+  # también source/robots.txt y la cabecera X-Robots-Tag de netlify.toml.
+  noindex: true
 nav:
   - label: Inicio
     href: "#inicio"
