@@ -66,7 +66,7 @@
                                     @elseif ($field['type'] === 'select')
                                         <select id="field-{{ $field['name'] }}" name="{{ $field['name'] }}" class="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236b7689%22 stroke-width=%221.6%22 stroke-linecap=%22round%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:18px_18px] bg-[right_1rem_center] bg-no-repeat pr-11"
                                                 @if ($field['required'] ?? false) required @endif>
-                                            <option value="" selected disabled>Seleccione una opción</option>
+                                            <option value="" selected disabled>Elige una opción</option>
                                             @foreach ($field['options'] as $option)
                                                 <option value="{{ $option }}">{{ $option }}</option>
                                             @endforeach
@@ -99,7 +99,7 @@
                         </span>
                         <h3 class="mt-6 font-display text-xl font-semibold">¡Gracias por escribirnos!</h3>
                         <p class="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-500">
-                            Hemos recibido su solicitud. Le contactaremos en menos de 24 horas hábiles para coordinar su cita.
+                            Hemos recibido tu solicitud. Te contactamos en menos de 24 horas hábiles para coordinar tu cita.
                         </p>
                         <button type="button" x-on:click="sent = false" class="mt-7 text-sm font-semibold text-brand-600 hover:text-brand-700">
                             Enviar otra solicitud

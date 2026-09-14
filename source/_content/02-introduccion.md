@@ -3,7 +3,7 @@
 id: riesgos
 eyebrow: El punto de partida
 title: Los Desafíos de la Empresa Familiar
-text: Comprender los riesgos inherentes a la propiedad, gestión y sucesión es el primer paso para proteger su patrimonio y su armonía familiar.
+text: Comprender los riesgos inherentes a la propiedad, gestión y sucesión es el primer paso para proteger tu patrimonio y la armonía de tu familia.
 cards:
   - icon: building
     title: Riesgos de Propiedad

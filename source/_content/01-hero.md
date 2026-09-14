@@ -6,7 +6,7 @@ slides:
   - eyebrow: Consultoría de Empresas Familiares
     title: Asegurando la
     highlight: Continuidad
-    title_end: y el Legado de su Familia.
+    title_end: y el Legado de tu Familia.
     text: La transcendencia se construye cuando familia y empresa avanzan en la misma dirección, con objetivos compartidos, reglas claras y un compromiso genuino con el futuro.
     image: /assets/images/slide-1.webp
     image_alt: Consejo familiar reunido en sala de juntas

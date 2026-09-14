@@ -2,8 +2,8 @@
 # Área de contacto con formulario.
 id: contacto
 eyebrow: Hablemos
-title: Agende su Cita
-text: Cuéntenos brevemente su situación. Responderemos en menos de 24 horas hábiles para coordinar una primera conversación confidencial.
+title: Agenda tu Cita
+text: Cuéntanos brevemente tu situación. Te respondemos en menos de 24 horas hábiles para coordinar una primera conversación confidencial.
 details:
   - icon: phone
     label: Teléfono
@@ -27,7 +27,7 @@ form:
   netlify: false
   netlify_name: contacto
   submit: Enviar Solicitud
-  privacy: Al enviar acepta nuestro aviso de privacidad. Sus datos se tratan de forma estrictamente confidencial.
+  privacy: Al enviar aceptas nuestro aviso de privacidad. Tus datos se tratan de forma estrictamente confidencial.
   fields:
     - name: nombre
       autocomplete: name
@@ -40,7 +40,7 @@ form:
       autocomplete: organization
       label: Empresa
       type: text
-      placeholder: Nombre de su empresa familiar
+      placeholder: Nombre de tu empresa familiar
       required: false
       width: half
     - name: email
@@ -64,14 +64,13 @@ form:
       width: full
       options:
         - Protocolo Familiar
-        - Plan de Sucesión
         - Gobierno Corporativo
-        - Mediación de Conflictos
+        - Plan de Sucesión
         - Otro
     - name: mensaje
-      label: ¿Cómo podemos ayudarle?
+      label: ¿Cómo podemos ayudarte?
       type: textarea
-      placeholder: Describa brevemente la situación de su empresa familiar…
+      placeholder: Cuéntanos brevemente la situación de tu empresa familiar…
       required: true
       width: full
 ---

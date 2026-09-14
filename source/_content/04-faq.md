@@ -1,9 +1,9 @@
 ---
 # Preguntas frecuentes: acordeón con Alpine.
 id: faq
-eyebrow: Resolvemos sus dudas
+eyebrow: Resolvemos tus dudas
 title: Preguntas Frecuentes
-text: Aclaramos sus dudas sobre el proceso de consultoría para empresas familiares.
+text: Aclaramos tus dudas sobre el proceso de consultoría para empresas familiares.
 items:
   - question: ¿Cuándo es el momento ideal para crear un protocolo familiar?
     answer: El mejor momento es antes de que exista un conflicto. Idealmente cuando la empresa está en crecimiento y la primera generación sigue activa, porque permite acordar reglas en un clima de confianza y no bajo presión.
