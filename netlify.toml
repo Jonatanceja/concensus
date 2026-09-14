@@ -1,0 +1,37 @@
+# Despliegue en Netlify
+# El sitio se compila en CI: Composer instala Jigsaw y `npm run build`
+# ejecuta Vite (assets) y el build de producción de Jigsaw.
+
+[build]
+  command = "composer install --no-dev --prefer-dist --no-progress --no-interaction && npm run build"
+  publish = "build_production"
+
+[build.environment]
+  # illuminate/* requiere PHP >= 8.3
+  PHP_VERSION = "8.3"
+  NODE_VERSION = "22"
+
+# Los assets de Vite llevan hash en el nombre: se pueden cachear para siempre
+[[headers]]
+  for = "/assets/build/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Es un sitio de una sola página: cualquier ruta desconocida muestra la
+# landing (con código 404, para no duplicar URLs ante los buscadores).
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 404

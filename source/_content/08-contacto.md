@@ -20,8 +20,12 @@ details:
     label: Horario
     value: Lunes a viernes, 9:00 – 18:00 h
 form:
+  # Con `action: "#"` el envío se simula en el navegador (solo maqueta).
+  # Para recibir mensajes con Netlify Forms: netlify: true y action: "/".
   action: "#"
   method: POST
+  netlify: false
+  netlify_name: contacto
   submit: Enviar Solicitud
   privacy: Al enviar acepta nuestro aviso de privacidad. Sus datos se tratan de forma estrictamente confidencial.
   fields:

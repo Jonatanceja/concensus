@@ -36,8 +36,19 @@
             {{-- Formulario --}}
             <div class="reveal lg:col-span-7" style="transition-delay: 120ms" x-intersect.once="$el.classList.add('is-visible')">
                 <div class="rounded-4xl border border-sand-200 bg-white p-8 shadow-lift sm:p-10" x-data="contactForm">
+                    @php $netlify = $form['netlify'] ?? false; $netlifyName = $form['netlify_name'] ?? 'contacto'; @endphp
+
                     <form action="{{ $form['action'] }}" method="{{ $form['method'] ?? 'POST' }}"
+                          @if ($netlify) name="{{ $netlifyName }}" data-netlify="true" netlify-honeypot="bot-field" @endif
                           x-on:submit="submit($event)" x-show="!sent" novalidate>
+                        @if ($netlify)
+                            {{-- Campos que necesita Netlify Forms --}}
+                            <input type="hidden" name="form-name" value="{{ $netlifyName }}">
+                            <p class="hidden" aria-hidden="true">
+                                <label>No llenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                            </p>
+                        @endif
+
                         <div class="grid gap-5 sm:grid-cols-2">
                             @foreach ($form['fields'] as $field)
                                 <div class="{{ ($field['width'] ?? 'full') === 'full' ? 'sm:col-span-2' : '' }}">

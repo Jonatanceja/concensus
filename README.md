@@ -114,7 +114,47 @@ el envío se simula en el navegador y muestra el mensaje de confirmación.
 Apunte `action` a su endpoint (Formspree, un script PHP, etc.) para recibir
 los mensajes; en ese caso el formulario se envía de forma nativa.
 
-## Producción
+## Despliegue en Netlify
+
+El repositorio ya trae `netlify.toml`, así que basta con conectar el repo en
+Netlify: detecta la configuración y no hay que tocar nada en el panel.
+
+```toml
+command = "composer install --no-dev ... && npm run build"
+publish = "build_production"
+```
+
+- El build corre en Netlify: Composer instala Jigsaw (PHP 8.3) y `npm run build`
+  compila los assets con Vite y genera el sitio de producción.
+- `config.production.php` toma el dominio de las variables de entorno de Netlify
+  (`URL`, y `DEPLOY_PRIME_URL` en las previsualizaciones de ramas y pull
+  requests), de modo que el canonical y las etiquetas Open Graph siempre apuntan
+  al dominio correcto. Al conectar el dominio propio no hay que cambiar nada;
+  para un build local sin esas variables se usa `https://consensusfamily.com`.
+- Los assets con hash se cachean un año; las imágenes, una semana.
+- Cualquier ruta desconocida muestra la landing con código 404.
+
+> Si el build fallara por la versión de PHP, ajuste `PHP_VERSION` en
+> `netlify.toml`. Alternativa sin build en CI: ejecute `npm run build` en local,
+> quite `/build_production/` del `.gitignore` y publique esa carpeta.
+
+### Formulario con Netlify Forms
+
+Por defecto el formulario es solo maqueta (simula el envío en el navegador).
+Para recibir los mensajes en Netlify, en `source/_content/08-contacto.md`:
+
+```yaml
+form:
+  action: "/"
+  netlify: true
+  netlify_name: contacto
+```
+
+Los mensajes llegan a **Forms** en el panel de Netlify y pueden notificarse por
+correo. El plan gratuito incluye 100 envíos al mes. Si prefiere otro servicio
+(Formspree, un endpoint propio), deje `netlify: false` y apunte `action` a él.
+
+## Producción (otros hosts)
 
 `config.production.php` define `baseUrl`. Ajústelo al dominio real antes de
 publicar y suba el contenido de `build_production/`.
