@@ -21,7 +21,7 @@ nav:
     href: "#inicio"
   - label: Riesgos
     href: "#riesgos"
-  - label: Lic. Kathya Lilian
+  - label: Nosotros
     href: "#biografia"
   - label: FAQ
     href: "#faq"

@@ -146,9 +146,16 @@ publish = "build_production"
 - Los assets con hash se cachean un año; las imágenes, una semana.
 - Cualquier ruta desconocida muestra la landing con código 404.
 
-> Si el build fallara por la versión de PHP, ajuste `PHP_VERSION` en
-> `netlify.toml`. Alternativa sin build en CI: ejecute `npm run build` en local,
-> quite `/build_production/` del `.gitignore` y publique esa carpeta.
+> **Versión de PHP**: `composer.json` fija la plataforma en PHP 8.3
+> (`config.platform.php`), que es la versión disponible en Netlify. Sin eso,
+> Composer resuelve las dependencias con la versión de PHP de su máquina —si es
+> 8.4, instala paquetes de Symfony que exigen 8.4 y el deploy falla con
+> *"your php version (8.3.x) does not satisfy that requirement"*. Si Netlify
+> actualiza su imagen, suba ese valor y `PHP_VERSION` en `netlify.toml` a la vez,
+> y ejecute `composer update`.
+>
+> Alternativa sin build en CI: ejecute `npm run build` en local, quite
+> `/build_production/` del `.gitignore` y publique esa carpeta.
 
 ### Formulario con Netlify Forms
 
