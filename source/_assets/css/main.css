@@ -1,0 +1,478 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Sistema de diseño — Consensus Family
+   Tailwind 4: los tokens se definen aquí y se usan como utilidades
+   (bg-sand-100, text-ink-700, font-display, …)
+--------------------------------------------------------------------------- */
+@theme {
+    --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    /* Neutros cálidos (fondos) */
+    --color-sand-50: #fdfbf8;
+    --color-sand-100: #f8f4ee;
+    --color-sand-200: #efe8dd;
+    --color-sand-300: #e2d8c8;
+
+    /* Tinta (textos y superficies oscuras) */
+    --color-ink-400: #98a1b2;
+    --color-ink-500: #6b7689;
+    --color-ink-600: #4b5568;
+    --color-ink-700: #333d4f;
+    --color-ink-800: #1e2634;
+    --color-ink-900: #141a26;
+    --color-ink-950: #0b0f17;
+
+    /* Marca */
+    --color-brand-50: #fff5ec;
+    --color-brand-100: #ffe7d3;
+    --color-brand-200: #ffcda8;
+    --color-brand-300: #f9ab72;
+    --color-brand-400: #f28b3e;
+    --color-brand-500: #e8700f;
+    --color-brand-600: #d2540a;
+    --color-brand-700: #a93d08;
+    --color-brand-800: #8a3109;
+    --color-brand-900: #6e2605;
+
+    /* Acento profundo para degradados */
+    --color-ember-600: #b62a16;
+    --color-ember-700: #8e1e0f;
+
+    --radius-4xl: 2rem;
+
+    --shadow-soft: 0 1px 2px rgb(20 26 38 / 0.04), 0 8px 24px -12px rgb(20 26 38 / 0.12);
+    --shadow-lift: 0 2px 4px rgb(20 26 38 / 0.04), 0 24px 48px -24px rgb(20 26 38 / 0.25);
+    --shadow-glow: 0 18px 40px -18px rgb(210 84 10 / 0.55);
+
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+    }
+
+    body {
+        background-color: var(--color-sand-100);
+        color: var(--color-ink-700);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        color: var(--color-ink-900);
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+    }
+
+    ::selection {
+        background-color: var(--color-brand-200);
+        color: var(--color-ink-900);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-brand-500);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer components {
+    /* Contenedor estándar de sección */
+    .shell {
+        width: 100%;
+        max-width: 76rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    /* Botones */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 9999px;
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        transition: all 0.3s var(--ease-smooth);
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-image: linear-gradient(100deg, var(--color-brand-600), var(--color-brand-500) 55%, var(--color-brand-400));
+        box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 44px -16px rgb(210 84 10 / 0.65);
+    }
+
+    .btn-ghost {
+        color: var(--color-ink-800);
+        background-color: rgb(255 255 255 / 0.75);
+        border: 1px solid var(--color-sand-300);
+        backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+        background-color: #fff;
+        border-color: var(--color-brand-300);
+        transform: translateY(-2px);
+    }
+
+    .btn-light {
+        color: var(--color-brand-700);
+        background-color: #fff;
+        box-shadow: var(--shadow-lift);
+    }
+
+    .btn-light:hover {
+        transform: translateY(-2px);
+        color: var(--color-brand-800);
+    }
+
+    /* Etiqueta superior de sección */
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--color-brand-600);
+    }
+
+    .eyebrow::before {
+        content: "";
+        width: 1.75rem;
+        height: 1px;
+        background-color: currentColor;
+        opacity: 0.6;
+    }
+
+    .eyebrow-center::after {
+        content: "";
+        width: 1.75rem;
+        height: 1px;
+        background-color: currentColor;
+        opacity: 0.6;
+    }
+
+    /* Tarjeta base */
+    .card {
+        position: relative;
+        background-color: #fff;
+        border: 1px solid var(--color-sand-200);
+        border-radius: 1rem;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth);
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lift);
+        border-color: var(--color-brand-200);
+    }
+
+    /* Mosaico de icono con degradado de marca */
+    .icon-tile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.75rem;
+        color: #fff;
+        background-image: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-700));
+        box-shadow: 0 10px 22px -12px rgb(169 61 8 / 0.8);
+    }
+
+    /* Campos de formulario */
+    .field {
+        width: 100%;
+        border-radius: 0.75rem;
+        border: 1px solid var(--color-sand-300);
+        background-color: #fff;
+        padding: 0.8125rem 1rem;
+        font-size: 0.9375rem;
+        color: var(--color-ink-800);
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field::placeholder {
+        color: var(--color-ink-400);
+    }
+
+    .field:focus {
+        outline: none;
+        border-color: var(--color-brand-400);
+        box-shadow: 0 0 0 4px rgb(242 139 62 / 0.15);
+    }
+
+    .field-label {
+        display: block;
+        margin-bottom: 0.4375rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--color-ink-700);
+    }
+
+    /* Texto largo proveniente de Markdown */
+    .prose-brand p {
+        margin-bottom: 1rem;
+        line-height: 1.75;
+        color: var(--color-ink-600);
+    }
+
+    .prose-brand p:last-child {
+        margin-bottom: 0;
+    }
+
+    .prose-brand strong {
+        color: var(--color-ink-900);
+        font-weight: 600;
+    }
+
+    .prose-brand a {
+        color: var(--color-brand-600);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        background-image: linear-gradient(100deg, var(--color-brand-500), var(--color-brand-300));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .bg-brand-gradient {
+        background-image: linear-gradient(110deg, var(--color-ember-700), var(--color-brand-600) 48%, var(--color-brand-400));
+    }
+
+    /* Aparición al hacer scroll (se activa con x-intersect) */
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    }
+
+    .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        scrollbar-width: none;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Header fijo. Los estados dependen de los atributos data-scrolled / data-open
+   que escribe Alpine (así no hay parpadeo antes de que cargue el JS).
+--------------------------------------------------------------------------- */
+.site-header {
+    padding-block: 1rem;
+    background-color: transparent;
+    border-bottom: 0;
+    transition: background-color 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth), padding 0.5s var(--ease-smooth);
+}
+
+/* Al hacer scroll: blanco semitransparente con desenfoque, sin línea dura */
+.site-header[data-scrolled="true"],
+.site-header[data-open="true"] {
+    padding-block: 0.625rem;
+    background-color: rgb(255 255 255 / 0.65);
+    box-shadow: 0 12px 32px -20px rgb(20 26 38 / 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Enlaces del menú: claros sobre el hero, en tinta al hacer scroll */
+.nav-link {
+    color: rgb(255 255 255 / 0.85);
+    transition: color 0.3s var(--ease-smooth);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.875rem;
+    right: 0.875rem;
+    bottom: -0.125rem;
+    height: 1px;
+    background-color: var(--color-brand-400);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-smooth);
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.site-header[data-scrolled="true"] .nav-link,
+.site-header[data-open="true"] .nav-link {
+    color: var(--color-ink-600);
+}
+
+.site-header[data-scrolled="true"] .nav-link:hover,
+.site-header[data-open="true"] .nav-link:hover {
+    color: var(--color-brand-600);
+}
+
+.site-header[data-scrolled="true"] .nav-link::after,
+.site-header[data-open="true"] .nav-link::after {
+    background-color: var(--color-brand-500);
+}
+
+/* Botón del menú móvil */
+.nav-toggle {
+    border-color: rgb(255 255 255 / 0.25);
+    background-color: rgb(255 255 255 / 0.1);
+    color: #fff;
+    backdrop-filter: blur(12px);
+    transition: background-color 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth), color 0.5s var(--ease-smooth);
+}
+
+.site-header[data-scrolled="true"] .nav-toggle,
+.site-header[data-open="true"] .nav-toggle {
+    border-color: var(--color-sand-300);
+    background-color: rgb(255 255 255 / 0.7);
+    color: var(--color-ink-800);
+}
+
+/* Logotipo: grande sobre el hero, se encoge al hacer scroll.
+   El cruce entre la versión blanca y la de color también va aquí. */
+.logo-color,
+.logo-light {
+    height: 4.25rem;
+    width: auto;
+    transition: opacity 0.5s var(--ease-smooth), height 0.5s var(--ease-smooth);
+}
+
+.site-header[data-scrolled="true"] .logo-color,
+.site-header[data-scrolled="true"] .logo-light,
+.site-header[data-open="true"] .logo-color,
+.site-header[data-open="true"] .logo-light {
+    height: 3rem;
+}
+
+@media (min-width: 640px) {
+    .logo-color,
+    .logo-light {
+        height: 5.5rem;
+    }
+
+    .site-header[data-scrolled="true"] .logo-color,
+    .site-header[data-scrolled="true"] .logo-light {
+        height: 3.5rem;
+    }
+}
+
+.logo-color { opacity: 0; }
+.logo-light { opacity: 1; }
+
+.site-header[data-scrolled="true"] .logo-color,
+.site-header[data-open="true"] .logo-color { opacity: 1; }
+
+.site-header[data-scrolled="true"] .logo-light,
+.site-header[data-open="true"] .logo-light { opacity: 0; }
+
+/* ---------------------------------------------------------------------------
+   Hero: los slides se apilan en la misma celda de grid para que el panel de
+   cristal mantenga una altura constante y solo se cruce el contenido.
+--------------------------------------------------------------------------- */
+.hero-stack {
+    display: grid;
+}
+
+/* El texto saliente se desvanece primero (0.35s) y el entrante espera ese
+   mismo tiempo antes de aparecer, para que nunca se superpongan. */
+.hero-stack > .hero-slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1.25rem);
+    pointer-events: none;
+    transition:
+        opacity 0.35s var(--ease-smooth),
+        transform 0.35s var(--ease-smooth),
+        visibility 0.35s;
+}
+
+.hero-stack > .hero-slide[data-active="true"] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition:
+        opacity 0.6s var(--ease-smooth) 0.35s,
+        transform 0.6s var(--ease-smooth) 0.35s,
+        visibility 0s 0.35s;
+}
+
+/* ---------------------------------------------------------------------------
+   El hero nunca supera el alto de la ventana (100vh): cuando la ventana es
+   baja, el contenido se compacta en lugar de recortarse.
+--------------------------------------------------------------------------- */
+@media (max-height: 860px) {
+    .hero-inner { padding-block: 6.5rem 6rem; }
+    .hero-panel { padding: 2rem 2.25rem; }
+    .hero-title { font-size: 2.75rem; margin-top: 1.125rem; }
+    .hero-copy { margin-top: 1.125rem; }
+}
+
+@media (max-height: 720px) {
+    .hero-inner { padding-block: 5.5rem 5rem; }
+    .hero-panel { padding: 1.5rem 1.75rem; }
+    .hero-title { font-size: 2.25rem; }
+    .hero-copy { font-size: 0.9rem; }
+    .hero-panel .btn { padding-block: 0.75rem; }
+}
+
+@media (max-height: 560px) {
+    .hero-title { font-size: 1.625rem; }
+    .hero-copy { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
