@@ -304,8 +304,10 @@
     padding-block: 0.625rem;
     background-color: rgb(255 255 255 / 0.65);
     box-shadow: 0 12px 32px -20px rgb(20 26 38 / 0.4);
+    /* Sin prefijo -webkit- a mano: el compilador lo añade solo. Si se escribe
+       después de la propiedad estándar, el minificador descarta esta última y
+       el desenfoque deja de verse en Chrome y Firefox. */
     backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 /* Enlaces del menú: claros sobre el hero, en tinta al hacer scroll */
