@@ -51,6 +51,9 @@
         @case('check')
             <path d="M20 6 9 17l-5-5"/>
             @break
+        @case('file-down')
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M12 12v6"/><path d="m9.5 15.5 2.5 2.5 2.5-2.5"/>
+            @break
         @case('arrow-right')
             <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
             @break

@@ -31,7 +31,20 @@
                     <div class="faq-answer" id="faq-panel-{{ $index }}" role="region"
                          aria-labelledby="faq-boton-{{ $index }}"
                          x-show="isOpen({{ $index }})" x-collapse x-cloak>
-                        <p class="border-t border-sand-200/80 px-6 py-5 text-sm leading-relaxed text-ink-500">{{ $item['answer'] }}</p>
+                        <div class="space-y-4 border-t border-sand-200/80 px-6 py-5">
+                            @foreach (preg_split('/\R\s*\R/', trim($item['answer'])) as $parrafo)
+                                <p class="text-sm leading-relaxed text-ink-500">{!! preg_replace('/\*\*(.+?)\*\*/u', '<strong class="font-medium text-ink-900">$1</strong>', e(trim($parrafo))) !!}</p>
+                            @endforeach
+
+                            @if ($item['file'] ?? false)
+                                <a href="{{ $item['file']['href'] }}" target="_blank" rel="noopener"
+                                   class="inline-flex items-center gap-2 rounded-full border border-sand-200 bg-sand-100 px-4 py-2 text-xs font-semibold text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-600">
+                                    @include('_partials.icon', ['name' => 'file-down', 'class' => 'w-4 h-4'])
+                                    {{ $item['file']['label'] ?? 'Descargar PDF' }}
+                                    <span class="sr-only">(PDF, se abre en una pestaña nueva)</span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             @endforeach

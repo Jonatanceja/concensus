@@ -8,19 +8,21 @@
             <p class="mt-5 text-[0.975rem] leading-relaxed text-ink-500">{{ $intro['text'] }}</p>
         </div>
 
-        <div class="mt-14 grid gap-6 md:grid-cols-3">
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
             @foreach ($intro['cards'] as $index => $card)
-                <article class="card reveal group overflow-hidden p-8"
-                         style="transition-delay: {{ $index * 90 }}ms"
+                <article class="card reveal group flex gap-5 overflow-hidden p-8"
+                         style="transition-delay: {{ ($index % 2) * 90 }}ms"
                          x-intersect.once="$el.classList.add('is-visible')">
                     <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-300 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                    <span class="icon-tile">
+                    <span class="icon-tile shrink-0">
                         @include('_partials.icon', ['name' => $card['icon'], 'class' => 'w-6 h-6'])
                     </span>
 
-                    <h3 class="mt-7 font-display text-lg font-semibold">{{ $card['title'] }}</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-ink-500">{{ $card['text'] }}</p>
+                    <div>
+                        <h3 class="font-display text-lg font-semibold">{{ $card['title'] }}</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-ink-500">{{ $card['text'] }}</p>
+                    </div>
                 </article>
             @endforeach
         </div>

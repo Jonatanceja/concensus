@@ -41,6 +41,36 @@ El nombre de la clave es el del archivo sin el prefijo numérico.
 
 > Los valores YAML que contengan `: ` (dos puntos + espacio) deben ir entre comillas.
 
+### Respuestas de las preguntas frecuentes
+
+Las respuestas de `04-faq.md` admiten **varios párrafos**: escríbalas con `|`
+y separe cada párrafo con una línea en blanco. Dentro del texto, `**así**`
+imprime negritas (útil para encabezar cada párrafo de una enumeración).
+
+```yaml
+  - question: ¿Cuáles son los obstáculos más comunes?
+    answer: |
+      **Resistencia al cambio.** Texto del primer punto.
+
+      **Otro obstáculo.** Texto del segundo punto.
+```
+
+El marcado se limpia automáticamente en los datos estructurados JSON-LD
+(`schema.blade.php`), que reciben la respuesta como un solo párrafo de texto.
+
+Una pregunta puede llevar además un botón de descarga (por ejemplo, un PDF
+con un esquema). Suba el archivo a `source/assets/files/` y agregue `file`
+al ítem:
+
+```yaml
+  - question: ¿Cómo concibo una Estructura de Gobierno Corporativo?
+    answer: |
+      Texto de la respuesta…
+    file:
+      href: /assets/files/estructura-gobierno-corporativo.pdf
+      label: Descargar esquema en PDF
+```
+
 ## Estructura de las vistas
 
 ```

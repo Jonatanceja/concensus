@@ -78,7 +78,7 @@
             'name' => $item['question'],
             'acceptedAnswer' => [
                 '@type' => 'Answer',
-                'text' => $item['answer'],
+                'text' => trim(preg_replace(['/\*\*/u', '/\s*\R\s*/u'], ['', ' '], $item['answer'])),
             ],
         ])->all(),
     ];
