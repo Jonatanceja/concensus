@@ -37,7 +37,7 @@ items:
 
       Del lado de la empresa, la Asamblea de Accionistas nombra al Consejo de Administración —con sus comités de auditoría y de prácticas societarias, y los demás que el negocio requiera—, y este supervisa al equipo directivo que lleva la operación. El Consejo Familiar es el puente entre ambos mundos.
 
-      Más abajo, en la sección «Estructura de Gobierno Corporativo», puedes ver el esquema completo.
+      Puedes descargar el esquema completo en PDF más abajo.
     # Botón de descarga opcional bajo la respuesta. Sube el archivo a
     # source/assets/files/ y apunta aquí la ruta (empieza con /assets/...).
     file:

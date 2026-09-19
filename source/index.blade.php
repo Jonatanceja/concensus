@@ -7,7 +7,6 @@
     @include('_partials.sections.biografia')
     @include('_partials.sections.faq')
     @include('_partials.sections.servicios')
-    @include('_partials.sections.gobierno')
     @include('_partials.sections.testimonios')
     @include('_partials.sections.cta')
     @include('_partials.sections.contacto')

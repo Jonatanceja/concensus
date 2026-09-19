@@ -27,8 +27,6 @@ nav:
     href: "#faq"
   - label: Servicios
     href: "#servicios"
-  - label: Gobierno
-    href: "#gobierno"
   - label: Testimonios
     href: "#testimonios"
 cta:
