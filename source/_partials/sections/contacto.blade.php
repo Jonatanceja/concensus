@@ -12,7 +12,7 @@
             <div class="reveal lg:col-span-5" x-intersect.once="$el.classList.add('is-visible')">
                 <span class="eyebrow">{{ $contacto['eyebrow'] }}</span>
                 <h2 id="contacto-titulo" class="mt-5 font-display text-3xl font-semibold sm:text-4xl">{{ $contacto['title'] }}</h2>
-                <p class="mt-5 max-w-md text-[0.975rem] leading-relaxed text-ink-500">{{ $contacto['text'] }}</p>
+                <p class="mt-5 max-w-md text-justify text-[0.975rem] leading-relaxed text-ink-500 hyphens-auto">{{ $contacto['text'] }}</p>
 
                 <ul class="mt-10 space-y-5">
                     @foreach ($contacto['details'] as $detail)

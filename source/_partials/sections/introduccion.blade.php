@@ -21,7 +21,7 @@
 
                     <div>
                         <h3 class="font-display text-lg font-semibold">{{ $card['title'] }}</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-ink-500">{{ $card['text'] }}</p>
+                        <p class="mt-3 text-justify text-sm leading-relaxed text-ink-500 hyphens-auto">{{ $card['text'] }}</p>
                     </div>
                 </article>
             @endforeach

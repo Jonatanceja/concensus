@@ -24,7 +24,7 @@
                                 <span class="text-brand-200">
                                     @include('_partials.icon', ['name' => 'quote', 'class' => 'w-8 h-8'])
                                 </span>
-                                <blockquote class="mt-5 flex-1 text-[0.975rem] italic leading-relaxed text-ink-600">
+                                <blockquote class="mt-5 flex-1 text-justify text-[0.975rem] italic leading-relaxed text-ink-600 hyphens-auto">
                                     “{{ $item['quote'] }}”
                                 </blockquote>
                                 <figcaption class="mt-7 border-t border-sand-200 pt-5">

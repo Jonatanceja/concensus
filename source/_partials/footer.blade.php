@@ -5,7 +5,7 @@
         <div class="grid gap-12 lg:grid-cols-12">
             <div class="lg:col-span-5">
                 <img src="{{ $site['brand']['logo_light'] }}" alt="{{ $site['brand']['name'] }}" class="h-20 w-auto">
-                <p class="mt-5 max-w-sm text-sm leading-relaxed">{{ $site['footer']['about'] }}</p>
+                <p class="mt-5 max-w-sm text-justify text-sm leading-relaxed hyphens-auto">{{ $site['footer']['about'] }}</p>
 
                 <div class="mt-7 flex items-center gap-3">
                     @foreach ($site['footer']['social'] as $social)

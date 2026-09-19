@@ -20,7 +20,7 @@
                     </span>
 
                     <h3 class="mt-7 font-display text-lg font-semibold">{{ $item['title'] }}</h3>
-                    <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{{ $item['text'] }}</p>
+                    <p class="mt-3 flex-1 text-justify text-sm leading-relaxed text-ink-500 hyphens-auto">{{ $item['text'] }}</p>
 
                 </article>
             @endforeach

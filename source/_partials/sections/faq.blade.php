@@ -33,7 +33,7 @@
                          x-show="isOpen({{ $index }})" x-collapse x-cloak>
                         <div class="space-y-4 border-t border-sand-200/80 px-6 py-5">
                             @foreach (preg_split('/\R\s*\R/', trim($item['answer'])) as $parrafo)
-                                <p class="text-sm leading-relaxed text-ink-500">{!! preg_replace('/\*\*(.+?)\*\*/u', '<strong class="font-medium text-ink-900">$1</strong>', e(trim($parrafo))) !!}</p>
+                                <p class="text-justify text-sm leading-relaxed text-ink-500 hyphens-auto">{!! preg_replace('/\*\*(.+?)\*\*/u', '<strong class="font-medium text-ink-900">$1</strong>', e(trim($parrafo))) !!}</p>
                             @endforeach
 
                             @if ($item['file'] ?? false)

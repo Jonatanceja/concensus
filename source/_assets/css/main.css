@@ -236,6 +236,8 @@
         margin-bottom: 1rem;
         line-height: 1.75;
         color: var(--color-ink-600);
+        text-align: justify;
+        hyphens: auto;
     }
 
     .prose-brand p:last-child {
