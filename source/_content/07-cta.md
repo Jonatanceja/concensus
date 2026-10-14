@@ -6,5 +6,7 @@ text: Permítenos acompañarte en el proceso de institucionalizar tu empresa, fo
 button:
   label: Programa una llamada de asesoría
   href: "#contacto"
+secondary:
+  label: Analiza si esto le pasa a tu empresa
 note: Primera sesión de diagnóstico sin costo · Confidencialidad garantizada
 ---

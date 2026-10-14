@@ -10,10 +10,19 @@
                 <h2 id="cta-titulo" class="font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[2.75rem]">{{ $cta['title'] }}</h2>
                 <p class="mx-auto mt-5 max-w-xl text-[0.975rem] leading-relaxed text-white/80">{{ $cta['text'] }}</p>
 
-                <a href="{{ $cta['button']['href'] }}" class="btn btn-light mt-9">
-                    {{ $cta['button']['label'] }}
-                    @include('_partials.icon', ['name' => 'arrow-right', 'class' => 'w-4 h-4'])
-                </a>
+                <div class="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <a href="{{ $cta['button']['href'] }}" class="btn btn-light">
+                        {{ $cta['button']['label'] }}
+                        @include('_partials.icon', ['name' => 'arrow-right', 'class' => 'w-4 h-4'])
+                    </a>
+
+                    @if ($cta['secondary'] ?? false)
+                        <button type="button" x-on:click="$dispatch('open-termometro')"
+                                class="btn border border-white/60 text-white hover:border-white hover:bg-white/10">
+                            {{ $cta['secondary']['label'] }}
+                        </button>
+                    @endif
+                </div>
 
                 @if ($cta['note'] ?? false)
                     <p class="mt-6 text-xs font-medium uppercase tracking-[0.14em] text-white/60">{{ $cta['note'] }}</p>
@@ -21,4 +30,6 @@
             </div>
         </div>
     </div>
+
+    @include('_partials.sections.termometro')
 </section>

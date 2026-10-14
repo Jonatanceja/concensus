@@ -12,7 +12,7 @@ items:
     title: Gobierno Corporativo
     text: Acompañamos a las empresas familiares en su implementación mediante la profesionalización en la toma de decisiones que aportan orden, claridad, competitividad y permanencia en el negocio.
   - icon: succession
-    title: Plan de Sucesión
+    title: Plan Patrimonial
     text: Estrategias estructuradas para garantizar una transición generacional fluida en el liderazgo y la propiedad del negocio.
 cta:
   label: Agendar Cita de Diagnóstico

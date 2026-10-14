@@ -243,5 +243,117 @@ Alpine.data('contactForm', () => ({
     },
 }));
 
+/* ---------------------------------------------------------------------------
+ * Termómetro (quiz en popup): una pregunta por pantalla, progreso y captura de
+ * datos al final. Se envía igual que el formulario de contacto: si la acción es
+ * "#" se simula; con Netlify se manda por fetch para no recargar la página.
+ * ------------------------------------------------------------------------ */
+Alpine.data('termometro', (config = {}) => ({
+    questions: config.questions || [],
+    results: config.results || [],
+    action: config.action || '#',
+    netlify: !!config.netlify,
+    formName: config.formName || 'termometro',
+    isOpen: false,
+    step: 0,
+    answers: [],
+    sending: false,
+    sent: false,
+    error: '',
+    lastFocus: null,
+
+    init() {
+        this.answers = this.questions.map(() => null);
+    },
+
+    get total() {
+        return this.questions.length;
+    },
+
+    get score() {
+        return this.answers.filter((a) => a === true).length;
+    },
+
+    get progress() {
+        // Avanza con cada pregunta contestada: 0 % al empezar, 100 % al terminarlas todas
+        return this.total ? (this.step / this.total) * 100 : 0;
+    },
+
+    get result() {
+        return this.results.find((r) => this.score <= r.max) || this.results[this.results.length - 1] || { title: '', text: '' };
+    },
+
+    get summary() {
+        return this.questions.map((q, i) => `${i + 1}. ${q} → ${this.answers[i] ? 'Sí' : 'No'}`).join('\n');
+    },
+
+    open() {
+        this.lastFocus = document.activeElement;
+        if (this.sent) this.reset();
+        this.isOpen = true;
+        document.body.style.overflow = 'hidden';
+        this.$nextTick(() => this.$refs.panel && this.$refs.panel.focus());
+    },
+
+    close() {
+        this.isOpen = false;
+        document.body.style.overflow = '';
+        if (this.lastFocus && this.lastFocus.focus) this.lastFocus.focus();
+    },
+
+    reset() {
+        this.step = 0;
+        this.answers = this.questions.map(() => null);
+        this.sent = false;
+        this.error = '';
+    },
+
+    answer(value) {
+        this.answers[this.step] = value;
+        // Pequeña pausa para que se vea la selección antes de avanzar
+        setTimeout(() => {
+            this.step++;
+            if (this.$refs.panel) this.$refs.panel.focus();
+        }, 220);
+    },
+
+    back() {
+        if (this.step > 0) this.step--;
+    },
+
+    async submit(event) {
+        const form = event.target;
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        this.sending = true;
+        this.error = '';
+
+        try {
+            if (this.action !== '#' && this.action !== '') {
+                const body = new URLSearchParams(new FormData(form)).toString();
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body,
+                });
+                if (!response.ok) throw new Error('send failed');
+            } else {
+                await new Promise((resolve) => setTimeout(resolve, 700));
+            }
+
+            this.sent = true;
+            form.reset();
+        } catch (e) {
+            this.error = 'No pudimos enviar tus datos. Inténtalo de nuevo en un momento.';
+        } finally {
+            this.sending = false;
+        }
+    },
+}));
+
 window.Alpine = Alpine;
 Alpine.start();
