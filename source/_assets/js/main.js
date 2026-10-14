@@ -275,8 +275,8 @@ Alpine.data('termometro', (config = {}) => ({
     },
 
     get progress() {
-        // Avanza con cada pregunta contestada: 0 % al empezar, 100 % al terminarlas todas
-        return this.total ? (this.step / this.total) * 100 : 0;
+        // Mide el riesgo: solo sube con cada "Sí pasa"; "No pasa" avanza de pregunta sin sumar
+        return this.total ? (this.score / this.total) * 100 : 0;
     },
 
     get result() {
@@ -310,8 +310,6 @@ Alpine.data('termometro', (config = {}) => ({
 
     answer(value) {
         this.answers[this.step] = value;
-        // Solo se avanza con "Sí pasa"; "No pasa" se queda en la misma pregunta
-        if (value !== true) return;
         // Pequeña pausa para que se vea la selección antes de avanzar
         setTimeout(() => {
             this.step++;
