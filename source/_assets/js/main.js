@@ -310,6 +310,8 @@ Alpine.data('termometro', (config = {}) => ({
 
     answer(value) {
         this.answers[this.step] = value;
+        // Solo se avanza con "Sí pasa"; "No pasa" se queda en la misma pregunta
+        if (value !== true) return;
         // Pequeña pausa para que se vea la selección antes de avanzar
         setTimeout(() => {
             this.step++;
