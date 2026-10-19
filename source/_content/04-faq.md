@@ -31,6 +31,12 @@ items:
     answer: |
       El gobierno corporativo facilita la transición al haber órganos decisorios con reglas claras, con lo cual la empresa deja de depender solamente de una sola persona. Los órganos de gobierno blindan a la empresa para ser menos vulnerable a los acontecimientos familiares. Esto permite la separación de los temas familiares, la propiedad y la operación.
 
+  - question: ¿Qué pasa si ningún familiar quiere dirigir la empresa?
+    answer: |
+      Es recurrente que las nuevas generaciones no deseen trabajar o liderar la empresa familiar; sin embargo, aunque el director general no sea miembro de la familia, la empresa sigue siendo familiar. Esto es porque los dueños siguen siendo propietarios, conservan el control y participan de forma activa en las decisiones estratégicas por medio del consejo de administración, en tanto que la operación está a cargo de un profesional externo a la familia.
+
+      En cualquiera de los dos casos, lo importante es evitar que la elección dependa de la edad, el parentesco o la cercanía con el fundador.
+
   - question: ¿Cómo concibo una Estructura de Gobierno Corporativo en una Empresa Familiar?
     answer: |
       En dos ámbitos que se comunican entre sí. Del lado de la familia, la Asamblea Familiar y el Consejo Familiar ordenan la convivencia y la visión de los propietarios, sobre condiciones indispensables como el protocolo familiar, la oficina familiar, el fideicomiso de control accionario y el plan de sucesión.
@@ -43,12 +49,6 @@ items:
     file:
       href: /assets/files/estructura-gobierno-corporativo.pdf
       label: Descargar esquema en PDF
-
-  - question: ¿Qué pasa si ningún familiar quiere dirigir la empresa?
-    answer: |
-      Es recurrente que las nuevas generaciones no deseen trabajar o liderar la empresa familiar; sin embargo, aunque el director general no sea miembro de la familia, la empresa sigue siendo familiar. Esto es porque los dueños siguen siendo propietarios, conservan el control y participan de forma activa en las decisiones estratégicas por medio del consejo de administración, en tanto que la operación está a cargo de un profesional externo a la familia.
-
-      En cualquiera de los dos casos, lo importante es evitar que la elección dependa de la edad, el parentesco o la cercanía con el fundador.
 
   - question: ¿Para qué sirve un Consejo de Administración en una Empresa Familiar?
     answer: |
