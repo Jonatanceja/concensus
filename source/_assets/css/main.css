@@ -312,6 +312,11 @@
     backdrop-filter: blur(20px) saturate(180%);
 }
 
+/* Menú móvil abierto: más aire arriba y abajo del logo */
+.site-header[data-open="true"] {
+    padding-block: 1.25rem;
+}
+
 /* Enlaces del menú: claros sobre el hero, en tinta al hacer scroll */
 .nav-link {
     color: rgb(255 255 255 / 0.85);
