@@ -7,13 +7,13 @@ text: Soluciones integrales diseñadas específicamente para las dinámicas y re
 items:
   - icon: shield
     title: Protocolo Familiar
-    text: El protocolo familiar es un documento que se elabora a través de un profundo proceso de comunicación, negociación y toma de decisiones de la familia. A través de su elaboración sus integrantes se comprometen a observar las reglas que fueron adoptadas por consenso y que integran un marco de referencia para fomentar la armonía familiar y la continuidad de la empresa a través de las generaciones.
+    text: El Protocolo Familiar es el resultado de un diálogo sincero y constructivo entre todos los integrantes de la familia. Juntos conversan, analizan y toman decisiones clave para establecer las «reglas del juego» que regirán el futuro del negocio. Al construir estos acuerdos por consenso, la familia define un marco de referencia compartido y asume un compromiso voluntario y unificado de proteger la armonía del hogar y asegurar la continuidad y prosperidad de la empresa para las siguientes generaciones.
   - icon: board
     title: Gobierno Corporativo
-    text: Acompañamos a las empresas familiares en su implementación mediante la profesionalización en la toma de decisiones que aportan orden, claridad, competitividad y permanencia en el negocio.
+    text: Acompañamos a las empresas familiares en la implementación de un gobierno corporativo que aporta orden, transparencia, competitividad y permanencia en el negocio al profesionalizar la toma de decisiones.
   - icon: succession
-    title: Plan Patrimonial
-    text: Estrategias estructuradas para garantizar una transición generacional fluida en el liderazgo y la propiedad del negocio.
+    title: Planeación Patrimonial
+    text: Detrás de cada patrimonio hay años de esfuerzo y un legado que merece trascender. Uno de los retos en la familia no es solo generar riqueza, sino perpetuarla con armonía y claridad. La planeación patrimonial es el proceso mediante el cual organizamos, protegemos y preparamos la transmisión de los bienes y activos, buscando que prevalezcan la tranquilidad hoy y la estabilidad para las futuras generaciones.
 cta:
   label: Agendar Cita de Diagnóstico
   href: "#contacto"

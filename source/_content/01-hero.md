@@ -16,11 +16,11 @@ slides:
     secondary:
       label: Descubrir Servicios
       href: "#servicios"
-  - eyebrow: Protocolo y Gobierno Corporativo
+  - eyebrow: Protocolo Familiar
     title: Reglas claras hoy,
     highlight: armonía
     title_end: para las siguientes generaciones.
-    text: Diseñamos protocolos familiares y consejos de administración que separan la emoción de la decisión y profesionalizan la gestión del patrimonio.
+    text: Acuerdos y reglas claras de entendimiento y convivencia entre los miembros de la familia y su empresa, que dan certeza a la continuidad, reducen la incertidumbre y promueven la armonía familiar.
     image: /assets/images/slide-2.webp
     image_alt: Documento de protocolo familiar sobre una mesa
     primary:
@@ -29,17 +29,30 @@ slides:
     secondary:
       label: Ver Preguntas Frecuentes
       href: "#faq"
+  - eyebrow: Gobierno Corporativo
+    title: Decisiones con
+    highlight: criterio profesional,
+    title_end: más allá de las personas.
+    text: Acompañamos a las empresas familiares en la implementación de un gobierno corporativo que aporta orden, transparencia, competitividad y permanencia en el negocio al profesionalizar la toma de decisiones.
+    image: /assets/images/slide-1.webp
+    image_alt: Consejo familiar reunido en sala de juntas
+    primary:
+      label: Conocer los Servicios
+      href: "#servicios"
+    secondary:
+      label: Ver Preguntas Frecuentes
+      href: "#faq"
   - eyebrow: Plan de Sucesión
     title: Preparamos a la
     highlight: siguiente generación
     title_end: para liderar con confianza.
-    text: Un proceso estructurado de transición del liderazgo y la propiedad que protege el negocio, el patrimonio y las relaciones familiares.
+    text: Estrategias diseñadas para facilitar una transición fluida tanto en el liderazgo como en la propiedad del negocio, tendientes a garantizar la continuidad de la empresa familiar.
     image: /assets/images/slide-3.webp
     image_alt: Dos generaciones de una familia empresaria
     primary:
       label: Agendar Diagnóstico
       href: "#contacto"
     secondary:
-      label: Leer Biografía
+      label: Conocer a Kathya
       href: "#biografia"
 ---

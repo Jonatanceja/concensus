@@ -480,3 +480,8 @@
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Páginas legales (aviso de privacidad, términos) */
+.legal-body h2 { margin-top: 2rem; margin-bottom: 0.6rem; font-family: var(--font-display, inherit); font-size: 1.2rem; font-weight: 600; }
+.legal-body p { margin-top: 0.75rem; line-height: 1.75; text-align: justify; hyphens: auto; }
+.legal-body a { text-decoration: underline; }

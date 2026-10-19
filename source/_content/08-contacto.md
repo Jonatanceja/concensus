@@ -5,17 +5,18 @@ eyebrow: Hablemos
 title: Agenda tu Cita
 text: Cuéntanos brevemente tu situación. Te respondemos en menos de 24 horas hábiles para coordinar una primera conversación confidencial.
 details:
-  - icon: phone
-    label: Teléfono
-    value: "+52 55 1234 5678"
-    href: "tel:+525512345678"
+  # Teléfono desactivado por ahora; descomenta y pon el número real para volver a mostrarlo.
+  # - icon: phone
+  #   label: Teléfono
+  #   value: "+52 55 1234 5678"
+  #   href: "tel:+525512345678"
   - icon: mail
     label: Correo
-    value: contacto@consensusfamily.com
-    href: "mailto:contacto@consensusfamily.com"
+    value: ktapia@consensusfamily.com
+    href: "mailto:ktapia@consensusfamily.com"
   - icon: pin
     label: Oficina
-    value: Ciudad de México, México
+    value: Guadalajara, Jalisco, México
   - icon: clock
     label: Horario
     value: Lunes a viernes, 9:00 – 18:00 h
@@ -64,7 +65,8 @@ form:
       width: full
       options:
         - Protocolo Familiar
-        - Gobierno Corporativo
+        - Órganos de Gobierno
+        - Planeación Patrimonial
         - Plan de Sucesión
         - Otro
     - name: mensaje

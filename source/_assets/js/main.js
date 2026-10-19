@@ -18,7 +18,8 @@ Alpine.data('siteHeader', () => ({
     },
 
     onScroll() {
-        this.scrolled = window.scrollY > 24;
+        // En las páginas legales el header es siempre sólido (data-solid)
+        this.scrolled = this.$el.hasAttribute('data-solid') || window.scrollY > 24;
     },
 
     toggle() {

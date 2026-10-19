@@ -23,7 +23,4 @@ cards:
   - icon: legacy
     title: Planeación Patrimonial
     text: Disputas sobre la propiedad que derivan en ventas forzadas de activos por desacuerdos en la distribución entre los herederos; falta de liquidez para afrontar las cargas fiscales de la transmisión de bienes, herencias y acciones; y exposición del patrimonio a adeudos o litigios por no blindarlo mediante vehículos como fideicomisos o estructuras de carácter corporativo.
-cta:
-  label: Ver más sobre análisis de riesgos
-  href: "#servicios"
 ---

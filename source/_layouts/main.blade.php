@@ -74,13 +74,13 @@
         <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
-        <a href="#inicio" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:text-sm focus:font-semibold">
+        <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:text-sm focus:font-semibold">
             Saltar al contenido
         </a>
 
         @include('_partials.header')
 
-        <main>
+        <main id="contenido">
             @yield('body')
         </main>
 

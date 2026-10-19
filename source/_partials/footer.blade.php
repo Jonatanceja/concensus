@@ -1,4 +1,8 @@
-@php $site = $page->content['site']; @endphp
+@php
+    $site = $page->content['site'];
+    // En las páginas legales las anclas (#servicios…) deben apuntar a la home
+    $home = ($page->legal ?? false) ? '/' : '';
+@endphp
 
 <footer class="bg-ink-900 text-ink-400">
     <div class="shell py-16 lg:py-20">
@@ -23,7 +27,7 @@
                     <ul class="mt-5 space-y-3 text-sm">
                         @foreach ($column['links'] as $link)
                             <li>
-                                <a href="{{ $link['href'] }}" class="transition-colors hover:text-brand-300">{{ $link['label'] }}</a>
+                                <a href="{{ str_starts_with($link['href'], '#') ? $home . $link['href'] : $link['href'] }}" class="transition-colors hover:text-brand-300">{{ $link['label'] }}</a>
                             </li>
                         @endforeach
                     </ul>

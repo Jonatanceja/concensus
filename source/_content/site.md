@@ -19,16 +19,16 @@ seo:
 nav:
   - label: Inicio
     href: "#inicio"
-  - label: Riesgos
-    href: "#riesgos"
-  - label: Nosotros
+  - label: Semblanza
     href: "#biografia"
-  - label: FAQ
-    href: "#faq"
+  - label: Desafíos
+    href: "#riesgos"
   - label: Servicios
     href: "#servicios"
-  - label: Testimonios
-    href: "#testimonios"
+  - label: FAQ's
+    href: "#faq"
+  - label: Casos
+    href: "#historias"
 cta:
   label: Agendar Cita
   href: "#contacto"
@@ -39,7 +39,7 @@ footer:
       links:
         - label: Servicios
           href: "#servicios"
-        - label: Biografía
+        - label: Semblanza
           href: "#biografia"
         - label: Preguntas frecuentes
           href: "#faq"
@@ -48,16 +48,13 @@ footer:
     - title: Legal
       links:
         - label: Aviso de privacidad
-          href: "#"
+          href: /aviso-de-privacidad
         - label: Términos y condiciones
-          href: "#"
+          href: /terminos-y-condiciones
   social:
     - label: LinkedIn
       href: "#"
       icon: linkedin
-    - label: Instagram
-      href: "#"
-      icon: instagram
     - label: WhatsApp
       href: "#"
       icon: whatsapp
