@@ -42,17 +42,17 @@ slides:
     secondary:
       label: Ver Preguntas Frecuentes
       href: "#faq"
-  - eyebrow: Plan de Sucesión
-    title: Preparamos a la
-    highlight: siguiente generación
-    title_end: para liderar con confianza.
-    text: Estrategias diseñadas para facilitar una transición fluida tanto en el liderazgo como en la propiedad del negocio, tendientes a garantizar la continuidad de la empresa familiar.
+  - eyebrow: Planeación Patrimonial
+    title: Un legado que merece
+    highlight: trascender
+    title_end: con armonía y claridad.
+    text: Detrás de cada patrimonio hay años de esfuerzo y un legado que merece trascender. Uno de los retos en la familia no es solo generar riqueza, sino perpetuarla con armonía y claridad.
     image: /assets/images/slide-3.webp
     image_alt: Dos generaciones de una familia empresaria
     primary:
       label: Agendar Diagnóstico
       href: "#contacto"
     secondary:
-      label: Conocer a Kathya
-      href: "#biografia"
+      label: Conocer los Servicios
+      href: "#servicios"
 ---

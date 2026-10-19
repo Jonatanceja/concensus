@@ -9,10 +9,6 @@ details:
     label: Teléfono
     value: "+52 33 3440 4891"
     href: "tel:+523334404891"
-  - icon: whatsapp
-    label: WhatsApp
-    value: "+52 33 3440 4891"
-    href: "https://wa.me/523334404891"
   - icon: mail
     label: Correo
     value: ktapia@consensusfamily.com

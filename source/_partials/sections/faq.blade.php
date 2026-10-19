@@ -1,6 +1,6 @@
 @php $faq = $page->content['faq']; @endphp
 
-<section id="{{ $faq['id'] ?? 'faq' }}" x-data="faqAccordion(0)" class="bg-sand-100 py-20 lg:py-28"
+<section id="{{ $faq['id'] ?? 'faq' }}" x-data="faqAccordion()" class="bg-sand-100 py-20 lg:py-28"
          aria-labelledby="faq-titulo">
     <div class="shell">
         <div class="reveal mx-auto max-w-2xl text-center" x-intersect.once="$el.classList.add('is-visible')">
