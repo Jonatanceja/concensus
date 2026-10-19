@@ -15,7 +15,7 @@ seo:
   twitter_card: summary_large_image
   # Sitio oculto para los buscadores. Ponga `false` al lanzar y revise
   # también source/robots.txt y la cabecera X-Robots-Tag de netlify.toml.
-  noindex: true
+  noindex: false
 nav:
   - label: Inicio
     href: "#inicio"
