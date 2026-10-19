@@ -27,7 +27,7 @@
 
         {{-- Contenido --}}
         <div class="relative flex h-full items-center">
-            <div class="shell hero-inner w-full pt-28 pb-28 lg:pt-24 lg:pb-24">
+            <div class="shell hero-inner w-full pt-32 pb-24 sm:pt-36 lg:pt-36 lg:pb-20">
                 <div class="max-w-xl">
                     {{--
                         El panel de cristal es único y permanece fijo: solo se
@@ -41,18 +41,18 @@
                                 <div class="hero-slide" data-active="{{ $index === 0 ? 'true' : 'false' }}"
                                      x-bind:data-active="active === {{ $index }}"
                                      x-bind:aria-hidden="active !== {{ $index }}">
-                                    <span class="eyebrow !text-brand-300">{{ $slide['eyebrow'] }}</span>
+                                    <span class="eyebrow !text-brand-300 !text-[0.65rem]">{{ $slide['eyebrow'] }}</span>
 
                                     {{-- Una sola h1 por página: los demás slides usan h2 con el mismo estilo --}}
-                                    <{{ $index === 0 ? 'h1' : 'h2' }} class="hero-title mt-5 font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]">
+                                    <{{ $index === 0 ? 'h1' : 'h2' }} class="hero-title mt-4 font-display text-[1.6rem] font-semibold leading-[1.1] text-white sm:text-[2rem] lg:text-[2.2rem]">
                                         {{ $slide['title'] }}
                                         <span class="text-gradient">{{ $slide['highlight'] }}</span>
                                         {{ $slide['title_end'] }}
                                     </{{ $index === 0 ? 'h1' : 'h2' }}>
 
-                                    <p class="hero-copy mt-6 max-w-lg text-[0.975rem] leading-relaxed text-white/75">{{ $slide['text'] }}</p>
+                                    <p class="hero-copy mt-4 max-w-lg text-[0.975rem] leading-relaxed text-white/75">{{ $slide['text'] }}</p>
 
-                                    <div class="mt-9 flex flex-wrap gap-3">
+                                    <div class="mt-6 flex flex-wrap gap-3">
                                         <a href="{{ $slide['primary']['href'] }}" class="btn btn-primary">
                                             {{ $slide['primary']['label'] }}
                                             @include('_partials.icon', ['name' => 'arrow-right', 'class' => 'w-4 h-4'])

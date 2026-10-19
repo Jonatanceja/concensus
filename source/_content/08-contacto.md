@@ -5,11 +5,14 @@ eyebrow: Hablemos
 title: Agenda tu Cita
 text: Cuéntanos brevemente tu situación. Te respondemos en menos de 24 horas hábiles para coordinar una primera conversación confidencial.
 details:
-  # Teléfono desactivado por ahora; descomenta y pon el número real para volver a mostrarlo.
-  # - icon: phone
-  #   label: Teléfono
-  #   value: "+52 55 1234 5678"
-  #   href: "tel:+525512345678"
+  - icon: phone
+    label: Teléfono
+    value: "+52 33 3440 4891"
+    href: "tel:+523334404891"
+  - icon: whatsapp
+    label: WhatsApp
+    value: "+52 33 3440 4891"
+    href: "https://wa.me/523334404891"
   - icon: mail
     label: Correo
     value: ktapia@consensusfamily.com

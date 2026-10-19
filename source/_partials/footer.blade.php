@@ -13,7 +13,7 @@
 
                 <div class="mt-7 flex items-center gap-3">
                     @foreach ($site['footer']['social'] as $social)
-                        <a href="{{ $social['href'] }}" aria-label="{{ $social['label'] }}"
+                        <a href="{{ $social['href'] }}" @if (str_starts_with($social['href'], 'http')) target="_blank" rel="noopener noreferrer" @endif aria-label="{{ $social['label'] }}"
                            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-brand-300">
                             @include('_partials.icon', ['name' => $social['icon'], 'class' => 'w-[18px] h-[18px]'])
                         </a>

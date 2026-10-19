@@ -445,16 +445,16 @@
    baja, el contenido se compacta en lugar de recortarse.
 --------------------------------------------------------------------------- */
 @media (max-height: 860px) {
-    .hero-inner { padding-block: 6.5rem 6rem; }
+    .hero-inner { padding-block: 8.5rem 4.5rem; }
     .hero-panel { padding: 2rem 2.25rem; }
-    .hero-title { font-size: 2.75rem; margin-top: 1.125rem; }
-    .hero-copy { margin-top: 1.125rem; }
+    .hero-title { font-size: 1.9rem; margin-top: 0.875rem; }
+    .hero-copy { margin-top: 0.875rem; }
 }
 
 @media (max-height: 720px) {
-    .hero-inner { padding-block: 5.5rem 5rem; }
+    .hero-inner { padding-block: 7.5rem 4rem; }
     .hero-panel { padding: 1.5rem 1.75rem; }
-    .hero-title { font-size: 2.25rem; }
+    .hero-title { font-size: 1.6rem; }
     .hero-copy { font-size: 0.9rem; }
     .hero-panel .btn { padding-block: 0.75rem; }
 }

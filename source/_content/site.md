@@ -53,10 +53,10 @@ footer:
           href: /terminos-y-condiciones
   social:
     - label: LinkedIn
-      href: "#"
+      href: https://www.linkedin.com/in/kathya-lillian-tapia-garcia-86335046
       icon: linkedin
     - label: WhatsApp
-      href: "#"
+      href: https://wa.me/523334404891
       icon: whatsapp
   copyright: Consensus Family, Consultoría de Empresas Familiares. Todos los derechos reservados.
 ---
