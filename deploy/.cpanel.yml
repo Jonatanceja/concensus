@@ -1,0 +1,7 @@
+---
+# cPanel > Git Version Control > "Deploy HEAD Commit" ejecuta estas tareas.
+# Copia el sitio ya compilado a la raíz del dominio (public_html).
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='cgi-bin' --exclude='.well-known' ./ $DEPLOYPATH

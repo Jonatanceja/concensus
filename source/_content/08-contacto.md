@@ -20,9 +20,9 @@ details:
     label: Horario
     value: Lunes a viernes, 9:00 – 18:00 h
 form:
+  # El envío lo atiende enviar.php (carpeta deploy/), que manda el correo a ktapia@.
   # Con `action: "#"` el envío se simula en el navegador (solo maqueta).
-  # Para recibir mensajes con Netlify Forms: netlify: true y action: "/".
-  action: "#"
+  action: /enviar.php
   method: POST
   netlify: false
   netlify_name: contacto

@@ -220,8 +220,9 @@ Alpine.data('contactForm', () => ({
     sent: false,
     error: '',
 
-    submit(event) {
+    async submit(event) {
         const form = event.target;
+        event.preventDefault();
 
         if (!form.checkValidity()) {
             form.reportValidity();
@@ -230,16 +231,31 @@ Alpine.data('contactForm', () => ({
 
         const action = form.getAttribute('action');
 
-        if (!action || action === '#' || action === '') {
-            event.preventDefault();
-            this.sending = true;
-            this.error = '';
+        this.sending = true;
+        this.error = '';
 
-            setTimeout(() => {
-                this.sending = false;
-                this.sent = true;
-                form.reset();
-            }, 700);
+        try {
+            if (!action || action === '#') {
+                // Maqueta: se simula el envío
+                await new Promise((resolve) => setTimeout(resolve, 700));
+            } else {
+                const response = await fetch(action, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
+                    body: new URLSearchParams(new FormData(form)).toString(),
+                });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.ok) throw new Error(data.error || 'send failed');
+            }
+
+            this.sent = true;
+            form.reset();
+        } catch (e) {
+            this.error = e.message && e.message !== 'send failed' && !/fetch|network/i.test(e.message)
+                ? e.message
+                : 'No pudimos enviar tu mensaje. Inténtalo de nuevo en un momento o escríbenos por correo.';
+        } finally {
+            this.sending = false;
         }
     },
 }));
@@ -341,7 +357,8 @@ Alpine.data('termometro', (config = {}) => ({
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body,
                 });
-                if (!response.ok) throw new Error('send failed');
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.ok) throw new Error(data.error || 'send failed');
             } else {
                 await new Promise((resolve) => setTimeout(resolve, 700));
             }
@@ -349,7 +366,9 @@ Alpine.data('termometro', (config = {}) => ({
             this.sent = true;
             form.reset();
         } catch (e) {
-            this.error = 'No pudimos enviar tus datos. Inténtalo de nuevo en un momento.';
+            this.error = e.message && e.message !== 'send failed' && !/fetch|network/i.test(e.message)
+                ? e.message
+                : 'No pudimos enviar tus datos. Inténtalo de nuevo en un momento.';
         } finally {
             this.sending = false;
         }

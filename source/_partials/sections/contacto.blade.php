@@ -40,14 +40,12 @@
 
                     <form action="{{ $form['action'] }}" method="{{ $form['method'] ?? 'POST' }}"
                           @if ($netlify) name="{{ $netlifyName }}" data-netlify="true" netlify-honeypot="bot-field" @endif
-                          x-on:submit="submit($event)" x-show="!sent" novalidate>
-                        @if ($netlify)
-                            {{-- Campos que necesita Netlify Forms --}}
-                            <input type="hidden" name="form-name" value="{{ $netlifyName }}">
-                            <p class="hidden" aria-hidden="true">
-                                <label>No llenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-                            </p>
-                        @endif
+                          x-on:submit.prevent="submit($event)" x-show="!sent" novalidate>
+                        {{-- Nombre del formulario y trampa para bots (los usan enviar.php y Netlify Forms) --}}
+                        <input type="hidden" name="form-name" value="{{ $netlifyName }}">
+                        <p class="hidden" aria-hidden="true">
+                            <label>No llenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                        </p>
 
                         <p class="mb-6 text-xs text-ink-500">Los campos marcados con <span class="text-brand-600">*</span> son obligatorios.</p>
 
@@ -80,6 +78,8 @@
                                 </div>
                             @endforeach
                         </div>
+
+                        <p class="mt-6 text-sm text-brand-600" x-show="error" x-text="error" role="alert" x-cloak></p>
 
                         <button type="submit" class="btn btn-primary mt-8 w-full sm:w-auto" x-bind:disabled="sending">
                             <span x-show="!sending">{{ $form['submit'] }}</span>

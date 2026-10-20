@@ -239,3 +239,14 @@ correo. El plan gratuito incluye 100 envíos al mes. Si prefiere otro servicio
 
 `config.production.php` define `baseUrl`. Ajústelo al dominio real antes de
 publicar y suba el contenido de `build_production/`.
+
+## Publicación en cPanel (rama `deploy`)
+
+```bash
+./deploy.sh   # compila y sube el sitio ya compilado a la rama `deploy`
+```
+
+La rama `deploy` contiene solo el sitio compilado más `deploy/.htaccess`,
+`deploy/enviar.php` (envío de formularios por correo; cambia el destinatario en
+la constante `DESTINO`) y `deploy/.cpanel.yml`. En cPanel: Git Version Control >
+Manage > Pull or Deploy > *Update from Remote* y luego *Deploy HEAD Commit*.
