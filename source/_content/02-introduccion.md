@@ -13,7 +13,7 @@ cards:
     text: Falta de claridad en la estructura accionaria, dispersión del capital y ausencia de acuerdos formales entre los socios familiares. Forma parte de la sucesión de las acciones y de sus derechos económicos.
   - icon: gears
     title: Riesgos de Gestión
-    text: Confusión de roles, concentración en la toma de decisiones o decisiones tomadas de forma emocional ante la falta de un protocolo familiar que regule cómo debe dirigirse la familia dentro de su empresa. A esto se suma la falta de profesionalización en los procesos.
+    text: Confusión de roles, concentración en la toma de decisiones o decisiones tomadas de forma emocional ante la falta de un protocolo familiar que regule cómo debe dirigirse la familia en relación a su empresa. A esto se suma la falta de profesionalización en los procesos.
   - icon: shield
     title: Riesgos por Falta de Protocolo Familiar
     text: Confusión entre propiedad, familia y empresa; conflictos y divisiones por no tener claridad en los derechos y obligaciones de la familia dentro del negocio; ausencia de meritocracia para contratar, remunerar y elegir el perfil ideal para cada función; y falta de mecanismos formales para resolver los conflictos familiares, lo que lleva las fricciones personales al ámbito operativo de la empresa.
