@@ -1,7 +1,10 @@
 ---
 # cPanel > Git Version Control > "Deploy HEAD Commit" ejecuta estas tareas.
 # Copia el sitio ya compilado a la raíz del dominio (public_html).
+# Sin -p/-o/-g para no copiar los permisos de la carpeta del repositorio sobre
+# public_html (con 0775 el servidor responde 403); además se fuerzan 755/644.
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
-    - /bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='cgi-bin' --exclude='.well-known' ./ $DEPLOYPATH
+    - /bin/rsync -rlt --chmod=D755,F644 --exclude='.git' --exclude='.cpanel.yml' --exclude='cgi-bin' --exclude='.well-known' ./ $DEPLOYPATH
+    - /bin/chmod 755 $DEPLOYPATH
