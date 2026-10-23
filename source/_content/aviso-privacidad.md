@@ -21,14 +21,18 @@ Usamos tus datos únicamente para ponernos en contacto contigo, responder tu sol
 
 No vendemos ni compartimos tus datos con terceros. Solo podrían tratarlos proveedores tecnológicos que nos ayudan a operar el sitio y recibir tus mensajes, y únicamente para ese fin. Podremos revelarlos si una autoridad competente lo requiere conforme a la ley.
 
-## 5. Confidencialidad y conservación
+## 5. Cookies y analítica del sitio
+
+Este sitio usa Google Analytics para conocer, de forma agregada, cómo se visita: qué páginas se consultan, desde qué tipo de dispositivo y de qué región general. Para ello Google puede guardar cookies en tu navegador y recibir datos de navegación como tu dirección IP y las páginas que visitas. No usamos esta información para identificarte personalmente. Puedes desactivar o borrar las cookies desde la configuración de tu navegador, o instalar el [complemento de inhabilitación de Google Analytics](https://tools.google.com/dlpage/gaoptout).
+
+## 6. Confidencialidad y conservación
 
 Tratamos tu información de forma estrictamente confidencial y la conservamos solo el tiempo necesario para atender tu solicitud y los fines descritos en este aviso.
 
-## 6. Tus derechos
+## 7. Tus derechos
 
 Puedes acceder a tus datos, rectificarlos, cancelarlos u oponerte a su tratamiento (derechos ARCO), así como revocar tu consentimiento, escribiendo a **ktapia@consensusfamily.com** con tu nombre y la solicitud que deseas hacer.
 
-## 7. Cambios a este aviso
+## 8. Cambios a este aviso
 
 Si este aviso cambia, publicaremos la versión actualizada en esta misma página.
