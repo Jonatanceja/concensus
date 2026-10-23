@@ -21,6 +21,18 @@
         <meta name="googlebot" content="noindex, nofollow">
 @endif
 
+@if ($page->production)
+        <!-- Google tag (gtag.js): solo en producción, para no contar visitas de desarrollo -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GFDN78QF3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-5GFDN78QF3');
+        </script>
+@endif
+
         {{-- Favicons --}}
         <link rel="icon" href="/favicon.ico" sizes="32x32">
         <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
