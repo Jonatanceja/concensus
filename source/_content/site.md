@@ -29,6 +29,10 @@ nav:
     href: "#faq"
   - label: Casos
     href: "#historias"
+# Botón flotante de WhatsApp (abajo a la derecha). Quita este bloque para ocultarlo.
+whatsapp:
+  label: Escríbenos por WhatsApp
+  href: https://wa.me/523334404891?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios.
 cta:
   label: Agendar Cita
   href: "#contacto"

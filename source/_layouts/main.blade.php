@@ -114,5 +114,7 @@
         </main>
 
         @include('_partials.footer')
+
+        @include('_partials.whatsapp-flotante')
     </body>
 </html>
