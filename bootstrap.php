@@ -53,25 +53,35 @@ $events->beforeBuild(function (Jigsaw $jigsaw) {
 });
 
 /*
- * Sitemap. Se genera después del build para poder usar el baseUrl del entorno
- * (en Netlify llega por variable de entorno). Es un sitio de una sola página,
- * así que basta con la raíz.
+ * Sitemap. Se genera después del build para poder usar el baseUrl del entorno.
+ * Para añadir una página nueva, agrégala a esta lista.
  */
 $events->afterBuild(function (Jigsaw $jigsaw) {
     $baseUrl = rtrim($jigsaw->getConfig('baseUrl') ?: '', '/');
 
-    $sitemap = implode("\n", [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        '    <url>',
-        '        <loc>' . $baseUrl . '/</loc>',
-        '        <lastmod>' . date('Y-m-d') . '</lastmod>',
-        '        <changefreq>monthly</changefreq>',
-        '        <priority>1.0</priority>',
-        '    </url>',
-        '</urlset>',
-        '',
-    ]);
+    // ruta => [frecuencia de cambio, prioridad]
+    $pages = [
+        '/' => ['monthly', '1.0'],
+        '/aviso-de-privacidad/' => ['yearly', '0.3'],
+        '/terminos-y-condiciones/' => ['yearly', '0.3'],
+    ];
+
+    $urls = '';
+    foreach ($pages as $path => [$changefreq, $priority]) {
+        $urls .= implode("\n", [
+            '    <url>',
+            '        <loc>' . $baseUrl . $path . '</loc>',
+            '        <lastmod>' . date('Y-m-d') . '</lastmod>',
+            '        <changefreq>' . $changefreq . '</changefreq>',
+            '        <priority>' . $priority . '</priority>',
+            '    </url>',
+        ]) . "\n";
+    }
+
+    $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
+        . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n"
+        . $urls
+        . '</urlset>' . "\n";
 
     $jigsaw->writeOutputFile('sitemap.xml', $sitemap);
 });
