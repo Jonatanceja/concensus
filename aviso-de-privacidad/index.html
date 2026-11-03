@@ -10,23 +10,26 @@
         <title>Aviso de Privacidad · Consensus Family</title>
 
 
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-T4CM3G75');</script>
-        <!-- End Google Tag Manager -->
-
-        <!-- Google tag (gtag.js): solo en producción, para no contar visitas de desarrollo -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GFDN78QF3"></script>
+        <!-- Google Tag Manager + gtag.js unificados: solo en producción, para no contar visitas de desarrollo -->
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
+            // Contenedores de GTM
+            ['GTM-T4CM3G75', 'GTM-5N24BNXD'].forEach(function (id) {
+                dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtm.js?id=' + id;
+                document.head.appendChild(s);
+            });
+
+            // Propiedades de Google Analytics (una sola carga de gtag.js)
+            gtag('js', new Date());
             gtag('config', 'G-5GFDN78QF3');
+            gtag('config', 'G-25CGCRQLR3');
         </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GFDN78QF3"></script>
 
         
         <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -80,6 +83,8 @@
     <body class="font-sans antialiased">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4CM3G75"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N24BNXD"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
