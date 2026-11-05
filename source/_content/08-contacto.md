@@ -3,7 +3,7 @@
 id: contacto
 eyebrow: Hablemos
 title: Agenda tu Cita
-text: Cuéntanos brevemente tu situación. Te respondemos en menos de 24 horas hábiles para coordinar una primera conversación confidencial.
+text: Cuéntanos brevemente tu situación. Te respondemos pronto para coordinar una primera conversación confidencial.
 details:
   - icon: phone
     label: Teléfono
