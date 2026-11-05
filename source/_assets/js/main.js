@@ -248,8 +248,11 @@ Alpine.data('contactForm', () => ({
                 if (!response.ok || !data.ok) throw new Error(data.error || 'send failed');
             }
 
-            this.sent = true;
-            form.reset();
+            // Evento para GTM y página de gracias (conversión por URL /gracias/)
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_submit', form_name: 'contacto' });
+            window.location.href = '/gracias/';
+            return;
         } catch (e) {
             this.error = e.message && e.message !== 'send failed' && !/fetch|network/i.test(e.message)
                 ? e.message
@@ -362,6 +365,10 @@ Alpine.data('termometro', (config = {}) => ({
             } else {
                 await new Promise((resolve) => setTimeout(resolve, 700));
             }
+
+            // El resultado se muestra en el popup, así que aquí solo se avisa a GTM
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_submit', form_name: 'termometro' });
 
             this.sent = true;
             form.reset();

@@ -15,8 +15,8 @@
 
         <title>{{ $page->title }}</title>
 
-@if ($seo['noindex'] ?? false)
-        {{-- Sitio en preparación: fuera de los buscadores (seo.noindex en site.md) --}}
+@if (($seo['noindex'] ?? false) || ($page->noindex ?? false))
+        {{-- Fuera de los buscadores: sitio en preparación (seo.noindex en site.md) o página con noindex (gracias) --}}
         <meta name="robots" content="noindex, nofollow">
         <meta name="googlebot" content="noindex, nofollow">
 @endif

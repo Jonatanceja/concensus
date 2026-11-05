@@ -99,7 +99,7 @@
                         </span>
                         <h3 class="mt-6 font-display text-xl font-semibold">¡Gracias por escribirnos!</h3>
                         <p class="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-500">
-                            Hemos recibido tu solicitud. Te contactamos en menos de 24 horas hábiles para coordinar tu cita.
+                            Hemos recibido tu solicitud. Pronto nos pondremos en contacto contigo para coordinar tu cita.
                         </p>
                         <button type="button" x-on:click="sent = false" class="mt-7 text-sm font-semibold text-brand-600 hover:text-brand-700">
                             Enviar otra solicitud
